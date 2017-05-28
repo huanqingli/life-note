@@ -4,7 +4,7 @@
 ## 技术部分
 - [**前端**](#前端)
 	- [HTTP](#HTTP)
-	- HTML
+	- [HTML](#HTML)
 	- CSS
 	- javaScript
 	- React家族
@@ -39,9 +39,9 @@
 	- 游戏
 
 ## 详细目录
-**前端**
-- ##### HTTP
-- HTML
+## 前端
+##### HTTP
+## HTML
 - CSS
 - javaScript
 - React家族
