@@ -49,17 +49,83 @@
 	- meta标签
 	- 本地储存
 - #### CSS
+	- CSS备忘
+	- CSS动画
+	- flex布局
+	- 自适应布局相关
 - #### javaScript
+	- js备忘
+	- AJAX
+	- 跨域
+	- DOM操作
+	- 正则表达式
+	- 数组
+	- 函数
+	- 对象
+	- 闭包
+	- this相关
+	- 时间日期相关
 - #### React家族
+	- React备忘
+	- React全栈成员
+	- 常用包
+	- React-router
+	- Redux
 - #### ES6标准
+	- ES6基础
+	- Iterator 遍历器
+	- Set结构
+	- Map结构
+	- Math方法
+	- 模版字符串
+	- 解构赋值
+	- 模块化
+	- 异步操作相关
+	- fetch请求
+	- 数组
+	- 对象
+	- 函数
 - #### 其他工具
+	- 移动端设置
+	- webpack
+	- moment
+	- Immutable
+	- eslint
+	- gulp
+	- 数据可视化
+	- 可视化文本编辑
+	- 弹出层
+	- 拖拽
+	- 表单验证
 
 ### 后端
 - #### PHP
+	- PHP备忘
+	- 类
+	- 函数
+	- 内置函数
+	- YII2
 - #### Python
+	- python备忘
+	- 序列
+	- 函数
+	- Django
 - #### Node
+	- node备忘
+	- express
+	- 内置模块
+	- 连接数据库
+	- 登录认证
+	- 常用包
+	- 包管理工具(npm,yarn)
 - #### 数据库
+	- SQL
+	- mySQL
+	- mongoDB
+	- 数据库设计
 - #### 其他
+	- web应用架构
+	- RESTful风格
 
 ### 读书
 - #### 技术书单
