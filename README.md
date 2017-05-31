@@ -30,7 +30,7 @@
 	- [计算机基础](#计算机基础)
 	- [常用软件](#常用软件)
 	- [好文收藏](#好文收藏)
-	- [歌单](http://)
+	- [歌单](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E6%AD%8C%E5%8D%95.md)
 - **简历**
 	- PDF版
 	- 打字机版
