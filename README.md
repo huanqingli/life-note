@@ -127,7 +127,8 @@
 
 ### 原创文章
 - #### 技术类
-- #### 生活类
+- #### 生活类	
+	- [你是自由的么](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E7%94%9F%E6%B4%BB%E7%B1%BB/%E4%BD%A0%E6%98%AF%E8%87%AA%E7%94%B1%E7%9A%84%E4%B9%88.md)
 - #### 读书笔记
 
 ### 积累与收藏
