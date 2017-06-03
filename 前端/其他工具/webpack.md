@@ -33,4 +33,4 @@ resolve: {
     extensions: ['.js', '.jsx'], //解析没有扩展名模块时可接受的扩展名
   },
 ```
-- [热替换](http://)
+- [热替换](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/react-%E7%83%AD%E6%9B%BF%E6%8D%A2.md)

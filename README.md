@@ -85,7 +85,7 @@
 	- 函数
 - #### 其他工具
 	- 移动端设置
-	- webpack
+	- [webpack](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/webpack.md)
 	- moment
 	- Immutable
 	- eslint
@@ -127,6 +127,7 @@
 
 ### 原创文章
 - #### 技术类
+	- [React-热替换](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/react-%E7%83%AD%E6%9B%BF%E6%8D%A2.md)
 - #### 生活类	
 	- [你是自由的么](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E7%94%9F%E6%B4%BB%E7%B1%BB/%E4%BD%A0%E6%98%AF%E8%87%AA%E7%94%B1%E7%9A%84%E4%B9%88.md)
 - #### 读书笔记
