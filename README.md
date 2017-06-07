@@ -48,7 +48,9 @@
 	- 本地储存
 - #### CSS
 	- CSS备忘
+	- [CSS Modules](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/CSS/css-modules.md)
 	- CSS动画
+	- CSS变量（自定义属性）
 	- flex布局
 	- 自适应布局相关
 - #### javaScript
