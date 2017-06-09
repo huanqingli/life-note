@@ -1,6 +1,7 @@
 ## webpack
-loader 用于对模块的源代码进行转换。
+
 #### 1. loader
+loader 用于对模块的源代码进行转换。
 - css-loader
 在js中加载css文件。
 内置cssnano压缩，配置options: { minimize: true }
@@ -25,6 +26,46 @@ module: {
 
 #### 2. plugins
 解决 loader 无法实现的其他事。
+- extract-text-webpack-plugin **用于从包中单独提取css文件**
+```javascript
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+//
+module.exports = {
+    module: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+              fallback: "style-loader",
+              use: "css-loader"
+            })
+          }
+        ]
+    },
+    plugins: [
+    	new ExtractTextPlugin("styles.css"),
+    ]
+}
+```
+- DefinePlugin **用于定义全局常量**
+```javascript
+new webpack.DefinePlugin({
+      SERVER: JSON.stringify('http://dev.example.com'),
+    }),
+```
+- ProvidePlugin **自动加载模块**
+```javascript
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }), //之后使用React无需引入模块
+```
+- HtmlWebpackPlugin **给HTML文件自动添加script和link标签**
+```javascript
+new HtmlWebpackPlugin({
+      template: './src_basic/index.html',
+      filename: '../index.html',
+    }) //用于生产环境
+```
 
 #### 3. 其他配置
 - 模块解析
@@ -32,5 +73,9 @@ module: {
 resolve: {
     extensions: ['.js', '.jsx'], //解析没有扩展名模块时可接受的扩展名
   },
+```
+- 调试工具添加模块信息
+```javascript
+devtool: "cheap-module-source-map", 
 ```
 - [热替换](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/react-%E7%83%AD%E6%9B%BF%E6%8D%A2.md)

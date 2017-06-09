@@ -50,7 +50,7 @@
 	- CSS备忘
 	- [CSS Modules](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/CSS/css-modules.md)
 	- CSS动画
-	- CSS变量（自定义属性）
+	- [CSS变量（自定义属性](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/CSS/CSS%E5%8F%98%E9%87%8F%EF%BC%88%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%EF%BC%89.md)
 	- flex布局
 	- 自适应布局相关
 - #### javaScript
