@@ -1,5 +1,5 @@
-#### CommonsChunkPlugin并不是分离第三方库的好办法（DllPlugin科学利用浏览器缓存）
-**[webpack](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/webpack.md)算是个磨人的小妖精了。**之前一直站在glup阵营，使用browserify打包，发现webpack已经火到爆炸，深怕被社区遗落，赶紧拿起来把玩一下。本来只想玩一下的。尝试打包了以后，就想启个webpack服务器，之后就想添加[热替换](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/react-%E7%83%AD%E6%9B%BF%E6%8D%A2.md)，什么css文件单独拆分，各种 loader 处理优化打包结果，各种 source-map 有什么不同，一个都不能少。其中添加热替换时候，因为应用的服务器和webpack服务器没有使用同一个，产生了一点波折。然后就到了今天这个主题了。
+## CommonsChunkPlugin并不是分离第三方库的好办法（DllPlugin科学利用浏览器缓存）
+[webpack](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/webpack.md)**算是个磨人的小妖精了。** 之前一直站在glup阵营，使用browserify打包，发现webpack已经火到爆炸，深怕被社区遗落，赶紧拿起来把玩一下。本来只想玩一下的。尝试打包了以后，就想启个webpack服务器，之后就想添加[热替换](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/react-%E7%83%AD%E6%9B%BF%E6%8D%A2.md)，什么css文件单独拆分，各种 loader 处理优化打包结果，各种 source-map 有什么不同，一个都不能少。其中添加热替换时候，因为应用的服务器和webpack服务器没有使用同一个，产生了一点波折。然后就到了今天这个主题了。
 **逐步展开今天的主题：**
 **为什么要分离第三方库？**
 这个好处显而易见，第三方库是比较稳定的，不会轻易改变，利用浏览器缓存后，用户再次加载页面会减少服务器请求，提高速度优化体验。提取多个应用（入口）公共模块的作用和他类似，公共部分会被缓存，所有应用都可以利用缓存内容从而提高性能。

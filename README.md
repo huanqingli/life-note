@@ -41,7 +41,7 @@
 - #### HTTP
 	- [HTTP协议](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/HTTP/HTTP%E5%8D%8F%E8%AE%AE.md)
 	- [访问一个网址时发生了什么](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/HTTP/%E8%AE%BF%E9%97%AE%E4%B8%80%E4%B8%AA%E5%9C%B0%E5%9D%80%E6%97%B6%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.md)
-	- [浏览器缓存](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/HTTP/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.md)
+	- [浏览器缓存](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/HTTP/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.mdCommonsChunkPlugin)
 - #### HTML
 	- HTML备忘
 	- H5新特性
@@ -131,6 +131,7 @@
 ### 原创文章
 - #### 技术类
 	- [React-热替换](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/react-%E7%83%AD%E6%9B%BF%E6%8D%A2.md)
+	- [webpack-科学分离第三方库](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/webpack-%E7%A7%91%E5%AD%A6%E5%88%86%E7%A6%BB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93.md)
 - #### 生活类	
 	- [你是自由的么](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E7%94%9F%E6%B4%BB%E7%B1%BB/%E4%BD%A0%E6%98%AF%E8%87%AA%E7%94%B1%E7%9A%84%E4%B9%88.md)
 - #### 读书笔记

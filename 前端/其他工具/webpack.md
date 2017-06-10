@@ -3,12 +3,12 @@
 #### 1. loader
 loader 用于对模块的源代码进行转换。
 - css-loader
-在js中加载css文件。
+在js中加载css文件。  
 内置cssnano压缩，配置options: { minimize: true }
 - style-loader
 将js中加载的css文件添加到HTML中。
 - postcss-loader
-通过各种插件预处理css文件，例如：
+通过各种插件预处理css文件，例如：  
 autoprefixer自动添加浏览器前缀。
 
 示例：
@@ -136,6 +136,8 @@ module.exports = {
       name: 'vendor',  // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
     }),
 ```
+关于[分离第三方库](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/webpack-%E7%A7%91%E5%AD%A6%E5%88%86%E7%A6%BB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93.md)
+
 #### 3. 其他配置
 - 模块解析
 ```javascript
