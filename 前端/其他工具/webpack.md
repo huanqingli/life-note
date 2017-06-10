@@ -66,7 +66,76 @@ new HtmlWebpackPlugin({
       filename: '../index.html',
     }) //用于生产环境
 ```
-
+- CommonsChunkPlugin**多入口文件提取公共代码**
+```javascript
+module.exports = {
+    entry: {
+        p1: "./page1",
+        p2: "./page2",
+        p3: "./page3",
+        ap1: "./admin/page1",
+        ap2: "./admin/page2"
+    },
+    output: {
+        filename: "[name].js"
+    },
+    plugins: [
+         new webpack.optimize.CommonsChunkPlugin({
+            name:"commons.js",
+         // minChunks: 2,
+         //(模块必须被2个 入口chunk 共享)
+            chunks: ["p1", "p2","p3"],
+         // (只使用这些 入口chunk)
+        },
+        new webpack.optimize.CommonsChunkPlugin({
+			name:"admin-commons.js",
+            chunks: ["ap1", "ap2"],
+        },
+    ]
+};
+//单独打包库文件：（不推荐，推荐使用 DllPlugin 分离库文件）
+module.exports = {
+	entry: {
+		app: './app.js',
+		vendor: ['react', 'react-dom', 'react-hot-loader', 'immutable', 'redux', 'react-redux', 'react-router-dom'],
+	},
+	//其他配置
+	plugins: [
+		new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor', 'manifest']
+        })
+	]
+}
+```
+- DllPlugin**单独打包库** 更好的利用浏览器缓存
+```javascript
+//打包库文件的单独配置
+const path = require('path')
+const webpack = require('webpack');
+//
+module.exports = {
+  entry: {
+    vendor: ['react', 'react-dom', 'react-hot-loader', 'immutable', 'redux', 'react-redux', 'react-router-dom', 'redux-logger',
+      'redux-persist', 'redux-persist-transform-immutable', 'redux-thunk'],
+  },
+  output: {
+    filename: 'js/[name].js',
+    path: path.resolve(__dirname, 'public'),
+    library: '[name]', // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
+  },
+  plugins: [
+    new webpack.DllPlugin({
+      path: path.resolve(__dirname, 'public/manifest.json'), // 本Dll文件中各模块的索引，供DllReferencePlugin读取使用
+      name: '[name]',
+    }),
+  ],
+}
+//打包应用文件时使用
+  new webpack.DllReferencePlugin({
+      manifest: require('./public/manifest.json'), // 指定manifest.json
+      name: 'vendor',  // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
+    }),
+```
 #### 3. 其他配置
 - 模块解析
 ```javascript
