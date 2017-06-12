@@ -57,7 +57,7 @@ new webpack.DefinePlugin({
 ```javascript
     new webpack.ProvidePlugin({
       React: 'react',
-    }), //之后使用React无需引入模块
+    }), //之后使用React无需引入模块，只有使用该变量时才会引入该模块
 ```
 - HtmlWebpackPlugin **给HTML文件自动添加script和link标签**
 ```javascript
@@ -150,3 +150,6 @@ resolve: {
 devtool: "cheap-module-source-map", 
 ```
 - [热替换](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/react-%E7%83%AD%E6%9B%BF%E6%8D%A2.md)
+
+- 命令行使用指定配置文件进行构建：
+`webpack --config example.config.js`
