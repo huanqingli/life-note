@@ -87,12 +87,13 @@
 	- 对象
 	- 函数
 - #### 其他工具
-	- 移动端设置
 	- [webpack](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/webpack.md)
+	-  [lodash快捷查询](http://)
 	- moment
 	- Immutable
 	- eslint
-	- gulp
+	- ~~gulp~~
+	- 移动端设置
 	- 数据可视化
 	- 可视化文本编辑
 	- 弹出层
