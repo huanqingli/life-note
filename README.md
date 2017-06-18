@@ -88,7 +88,7 @@
 	- 函数
 - #### 其他工具
 	- [webpack](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/webpack.md)
-	-  [lodash快捷查询](http://)
+	-  [lodash快捷查询](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/lodash%E5%BF%AB%E6%8D%B7%E6%9F%A5%E8%AF%A2.md)
 	- moment
 	- Immutable
 	- eslint
