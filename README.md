@@ -20,8 +20,7 @@
 
 ## 生活部分
 - **读书**
-	- [技术书单](#技术书单)
-	- [生活书单](https://github.com/huanqingli/life-note/blob/master/%E8%AF%BB%E4%B9%A6/%E7%94%9F%E6%B4%BB%E4%B9%A6%E5%8D%95.md)
+	- [书单](https://github.com/huanqingli/life-note/blob/master/%E8%AF%BB%E4%B9%A6/%E4%B9%A6%E5%8D%95.md)
 	- [读书笔记](#读书笔记)
 - **原创文章**
 	- [技术类](#技术类)
@@ -57,6 +56,7 @@
 - #### javaScript
 	- js备忘
 	- AJAX
+	- [fetch](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/fetch.md)
 	- 跨域
 	- DOM操作
 	- 正则表达式
@@ -82,7 +82,6 @@
 	- 解构赋值
 	- 模块化
 	- 异步操作相关
-	- fetch请求
 	- 数组
 	- 对象
 	- 函数

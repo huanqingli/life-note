@@ -4,7 +4,8 @@
 默认情况下, fetch在服务端不会发送或接收任何 cookies。  
 #### 基础
 检查请求状态：`response.status`
-body传递键值对：`foo=bar&blah=1`
+请求成功（status值在200-299之间）：`response.ok`
+body传递键值对：`'foo=bar&blah=1'`
 #### 示例
 ```javascript
 //简单GET请求
