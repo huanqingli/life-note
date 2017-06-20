@@ -18,7 +18,7 @@ fetch(url)
     console.log("Oops, error");
   });
 //**********************************************
-//尖头函数
+//箭头函数
 fetch(url)
   .then(response => response.json())
   .then(data => console.log(data))
