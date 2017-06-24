@@ -9,6 +9,12 @@
 #### 图片处理
 - [鼠标悬浮](https://codepen.io/nxworld/pen/ZYNOBZ)
 
+#### 滚动条
+- [纯css](https://codepen.io/MadeByMike/pen/ZOrEmr)
+
+#### 菜单导航
+- [可爱面包屑](https://codepen.io/renaudtertrais/pen/GfaCE)
+
 #### 停不下来系列
 - [萌萌小狮子](https://codepen.io/Yakudoo/pen/YXxmYR)
 - [点死你](https://codepen.io/ge1doot/pen/WbWQOP)
