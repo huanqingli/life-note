@@ -14,6 +14,7 @@
 
 #### 菜单导航
 - [可爱面包屑](https://codepen.io/renaudtertrais/pen/GfaCE)
+- [悬停变色菜单](https://codepen.io/larrygeams/pen/pdchG)
 
 #### 停不下来系列
 - [萌萌小狮子](https://codepen.io/Yakudoo/pen/YXxmYR)
