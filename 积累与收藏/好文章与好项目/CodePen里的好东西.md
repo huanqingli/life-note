@@ -8,6 +8,7 @@
 
 #### 图片处理
 - [鼠标悬浮](https://codepen.io/nxworld/pen/ZYNOBZ)
+- [望远镜效果（局部可见）](https://codepen.io/ladybenko/pen/qmvKrM/)
 
 #### 滚动条
 - [纯css](https://codepen.io/MadeByMike/pen/ZOrEmr)
