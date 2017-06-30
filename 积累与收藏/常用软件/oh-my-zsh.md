@@ -18,14 +18,17 @@
 - last-working-dir： 自动进入上次工作的目录。
 - web-search： 使用默认浏览器搜索，例如，`baidu 知乎`
 - z: 模糊匹配路径，（匹配通过cd访问过的路径）
+- h: 查看历史命令，`h` 查看所有历史命令，`hsi xxx` 查看带有xxx的历史命令
 - 
-
 
 - *wd*： [快捷路径跳转](#wd)（被 z 替代）
 - *extract*： 解压缩
 
 非内置插件：
 - zsh-syntax-highlighting： 命令高亮，提示错误，合法路径等
+安装：` git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+在 plugins 里添加到最后一个
+
 
 插件使用：
 ##### wd

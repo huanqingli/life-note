@@ -139,6 +139,7 @@
 ### 积累与收藏
 - #### 计算机基础
 - #### 常用软件
+	- [装机必备](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/Mac%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87.md)
 	- [chrome](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/chrome.md)  
 	- [oh-my-zsh](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/oh-my-zsh.md)
 - #### 好文章与好项目
