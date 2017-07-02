@@ -132,15 +132,17 @@
 - #### 技术类
 	- [React-热替换](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/react-%E7%83%AD%E6%9B%BF%E6%8D%A2.md)
 	- [webpack-科学分离第三方库](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E6%8A%80%E6%9C%AF%E7%B1%BB/webpack-%E7%A7%91%E5%AD%A6%E5%88%86%E7%A6%BB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93.md)
-- #### 生活类	
+- #### 生活类
 	- [你是自由的么](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E7%94%9F%E6%B4%BB%E7%B1%BB/%E4%BD%A0%E6%98%AF%E8%87%AA%E7%94%B1%E7%9A%84%E4%B9%88.md)
 - #### 读书笔记
 
 ### 积累与收藏
 - #### 计算机基础
+	- [git](a)
 - #### 常用软件
 	- [装机必备](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/Mac%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87.md)
 	- [chrome](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/chrome.md)  
 	- [oh-my-zsh](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/oh-my-zsh.md)
+	- [atom](a)
 - #### 好文章与好项目
 	- [CodePen 里的好东西](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%A5%BD%E6%96%87%E7%AB%A0%E4%B8%8E%E5%A5%BD%E9%A1%B9%E7%9B%AE/CodePen%E9%87%8C%E7%9A%84%E5%A5%BD%E4%B8%9C%E8%A5%BF.md)  

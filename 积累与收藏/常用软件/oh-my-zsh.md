@@ -13,13 +13,15 @@
 
 #### 插件系统
 [插件列表（官方）](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)和 [简介（官方）](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins)  
-启动插件：plugins=(rails git ruby ...其他插件)
+启动插件：plugins=(rails git ruby ...其他插件)  
 常用插件：
 - last-working-dir： 自动进入上次工作的目录。
 - web-search： 使用默认浏览器搜索，例如，`baidu 知乎`
 - z: 模糊匹配路径，（匹配通过cd访问过的路径）
 - h: 查看历史命令，`h` 查看所有历史命令，`hsi xxx` 查看带有xxx的历史命令
-- 
+- osx: [mac终端的小工具](#osx)
+- git: git支持[全部别名](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git) [常用别名](#git)
+---
 
 - *wd*： [快捷路径跳转](#wd)（被 z 替代）
 - *extract*： 解压缩
@@ -37,3 +39,24 @@
 - 删除简写为xxx的快捷进入方式： wd rm xxx
 - 列出所有快捷进入方式： wd list
 - 获取帮助： wd help
+
+##### osx
+- 在 Finder 中打开当前目录： ofd
+- 前往当前 Finder 中打开的目录： cdf
+
+##### git
+- g : git
+- ga : git add
+- gaa : git add --all
+- gapa : git add --patch （列出修改项确认是否修改）
+- **gst** : git status
+- gss : git status -s
+- gd : git diff
+- gdca : git diff --cache
+- gc: git commit -v
+- **gcam** : git commit -a -m
+- gca!:	git commit -v -a --amend
+- **gcan!**: git commit -v -a -s --no-edit --amend
+- gru: git reset --
+- grh: git reset HEAD
+- grhh: git reset HEAD --hard
