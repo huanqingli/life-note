@@ -12,6 +12,7 @@
   选中后右键选搜索即可，选中url可选择新建标签页打开，  
   选中关键字后，拖拽到地址栏在当前页面启动默认搜索引擎搜索，  
   拖拽关键字到新建标签，在新建标签中启动默认搜索引擎搜索  
+- cmd-shift-t:打开刚关闭的页面，没想到用得最多的是这个快捷键
 
 #### 3. 控制台
 - console.dir(myObject)  
@@ -24,7 +25,7 @@
 - console.assert(flag,'输出错误信息')  
   flag 为布尔值，为假时输出信息
 - console.time(label)  
-  console.timeEnd(label)  
+  console.timeEnd(label) 
   label 可以为任意字符串，计算两者之间代码运行时间。  
 - console.group(labeel)  
   console.groupEnd()  
