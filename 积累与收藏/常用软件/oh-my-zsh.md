@@ -57,6 +57,5 @@
 - **gcam** : git commit -a -m
 - gca!:	git commit -v -a --amend
 - **gcan!**: git commit -v -a -s --no-edit --amend
-- gru: git reset --
 - grh: git reset HEAD
 - grhh: git reset HEAD --hard
