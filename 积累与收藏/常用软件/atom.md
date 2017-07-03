@@ -1,5 +1,6 @@
 ## atom
-#### markdown-writer
+#### markdown
+##### markdown-writer
 - alt-l : 插入链接
 - alt-i : 插入图片
 - alt-1 : 插入一级标题，同理2345
@@ -15,3 +16,9 @@
 - cmd-> : 引用
 - cmd-j cmd-p : 跳转到上一个标题
 - cmd-j cmd-n : 跳转到下一个标题
+
+#### git
+##### Merge Conflicts
+alt-m d : 检查冲突
+##### git-diff
+alt-g d : 查看 git diff 列表

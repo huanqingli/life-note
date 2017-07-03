@@ -4,7 +4,7 @@
 [**pro git**](https://git-scm.com/book/zh/v2)  
 [**cheat sheet**](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)  
 ### 本地仓库操作：
-#### 创建/克隆版本库：
+#### 创建/版本库：
 - `git init` ： 终端进入一个目录后，该命令在此目录创建版本库。
 
 #### 提交修改：
@@ -50,5 +50,5 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 #### 删除/重命名文件
 - `git rm`：后面加文件名（带后缀），此命令将对该文件的删除操作添加到暂存区。之后commit操作和提交修改中的commit操作相同。此命令删除版本库文件还会删除工作区文件。（工作区直接删除文件，也要再移除监控）
 - `git rm --cached`：后面加文件名（带后缀），此命令将文件移除版本库并取消监控，不删除工作区文件。
-- `git mv file_a file_b`: 把文件a重命名为文件b。
-相当于文件系统中重命名后运行：$ git rm file_a   $ git add file_b
+- `git mv file_a file_b`: 把文件a重命名为文件b。  
+相当于文件系统中重命名后运行：$ git rm file_a   $ git add file_b  

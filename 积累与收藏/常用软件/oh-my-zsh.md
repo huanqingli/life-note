@@ -21,7 +21,7 @@
 - h: 查看历史命令，`h` 查看所有历史命令，`hsi xxx` 查看带有xxx的历史命令
 - osx: [mac终端的小工具](#osx)
 - git: git支持[全部别名](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git) [常用别名](#git)
----
+
 
 - *wd*： [快捷路径跳转](#wd)（被 z 替代）
 - *extract*： 解压缩
