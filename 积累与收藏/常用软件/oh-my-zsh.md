@@ -60,9 +60,41 @@
 - grh: git reset HEAD
 - grhh: git reset HEAD --hard
 - gcf: git config --list
-- gb: git branch
-- gcm: git checkout master
-- gcd: git checkout develop
-- gco: git checkout
-- gcb: git checkout -b
+- **gb**: git branch
+- **gba**: git branch -a
 - gbr: git branch --remote
+- gbnm: git branch --no-merged
+- **gbda**: git branch --merged | command grep -vE "^(|\smaster\s$)" | command xargs -n 1 git branch -d(删除除了master和develop外已经合并到当前分支的分支)
+- **gcm**: git checkout master
+- **gcd**: git checkout develop
+- **gco**: git checkout
+- **gcb**: git checkout -b
+- **gm**: git merge
+- **gmom**: git merge origin/master
+- grb: git rebase
+- grbc: git rebase --continue
+- **gf**: git fetch
+- gfo: git fetch origin
+- gfa: git fetch --all --prune
+- **gl**:git pull
+- **gp**: git push
+- **gpsup**: git push --set-upstream origin $(current_branch)
+- gcount: git shortlog -sn
+- glg: git log --stat --color（查看每次提交变动的文件和行数）
+- **glog**: git log --oneline --decorate --color --graph
+- glol: git log --graph --pretty = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit(附带提交时间和提交人)
+- **gr**: git remote
+- **grv**: git remote -v
+- **gra**: git remote add
+- grmv: git remote rename
+- grrm: git remote remove
+- gts: git tag -s
+- gsps: git show --pretty = short --show-signature
+- gst: git status
+- gstl: git stash list
+- gstaa: git stash apply
+- gbs: git bisect
+- gbsb: git bisect bad
+- gbsg: git bisect good
+- gbsr: git bisect reset
+- gcp: git cherry-pick
