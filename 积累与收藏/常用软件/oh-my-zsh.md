@@ -61,8 +61,9 @@
 - grhh: git reset HEAD --hard
 - gcf: git config --list
 - gb: git branch
+- gbr: git branch --remote
 - gcm: git checkout master
 - gcd: git checkout develop
 - gco: git checkout
 - gcb: git checkout -b
-- gbr: git branch --remote
+- gm: git merge
