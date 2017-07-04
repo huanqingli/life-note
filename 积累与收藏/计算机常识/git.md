@@ -4,8 +4,17 @@
 [**pro git**](https://git-scm.com/book/zh/v2)  
 [**cheat sheet**](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)  
 ### 本地仓库操作：
-#### 创建/版本库：
+#### 基础配置：
+- `git config --global`: 针对当前用户，全局生效的配置
+- `git config`: 针对当前项目生效的配置，覆盖 global 的配置。
+常用配置项：  
+`core.pager`: 分页器，默认less 可以设为 '' ，避免 diff 和 log 的时候进入分页器。  
+`user.name`: 用户名， `user.email`: 邮箱
+`alias`: 设置别名 alias.co checkout：此后可用co代替checkout。
+
+#### 创建/拷贝版本库：
 - `git init` ： 终端进入一个目录后，该命令在此目录创建版本库。
+- `git clone` ： 后接项目url和克隆到本地后的文件名。
 
 #### 提交修改：
 - `git add` ： 后面加文件名（带后缀），此命令将对该文件的修改添加到暂存区(或者将新文件列入监控范围）。  
@@ -52,3 +61,13 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 - `git rm --cached`：后面加文件名（带后缀），此命令将文件移除版本库并取消监控，不删除工作区文件。
 - `git mv file_a file_b`: 把文件a重命名为文件b。  
 相当于文件系统中重命名后运行：$ git rm file_a   $ git add file_b  
+
+#### 分支操作
+- `git branch`: 查看分支，后接分支名则创建该分支。  
+可选参数：  
+`－r`: 查看远程分支  
+`-d`: 删除分支(合并后没用的分支删除之)后加 -r 一并删除远程分支  
+- `git checkout branchNameA`:指针(HEAD)切换到分支A，工作区也会切换到该分支最后一次提交的样子。  
+可选参数：  
+`-b`： 新建分支并切换。
+- `git merge branchNameA`：将分支A合并到当前分支。

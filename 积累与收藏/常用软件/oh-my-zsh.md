@@ -47,7 +47,7 @@
 ##### git
 - g : git
 - ga : git add
-- gaa : git add --all
+- **gaa** : git add --all
 - gapa : git add --patch （列出修改项确认是否修改）
 - **gst** : git status
 - gss : git status -s
@@ -59,3 +59,10 @@
 - **gcan!**: git commit -v -a -s --no-edit --amend
 - grh: git reset HEAD
 - grhh: git reset HEAD --hard
+- gcf: git config --list
+- gb: git branch
+- gcm: git checkout master
+- gcd: git checkout develop
+- gco: git checkout
+- gcb: git checkout -b
+- gbr: git branch --remote
