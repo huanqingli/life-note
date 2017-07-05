@@ -51,6 +51,7 @@
 - gapa : git add --patch （列出修改项确认是否修改）
 - **gst** : git status
 - gss : git status -s
+- **gsb**: git status -sb
 - gd : git diff
 - gdca : git diff --cache
 - gc: git commit -v

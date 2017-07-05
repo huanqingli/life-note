@@ -1,5 +1,6 @@
 ## CSS变量（自定义属性）
 截止2017.04，所有现代浏览器支持CSS变量。
+[can I use ?](http://caniuse.com/#search=css%20Variables)
 ##### 用法
 **定义变量**
 ```css
@@ -56,7 +57,7 @@ a {
 :root{
   --margin: 10px;
 }
- 
+
 div{
   text-indent: calc(var(--margin)*10)
 }
@@ -72,6 +73,6 @@ var root = getComputedStyle(document.documentElement);
 var cssVariable = root.getPropertyValue('--testMargin').trim();
 
 console.log(cssVariable); // 75px
- 
+
 document.documentElement.style.setProperty('--testMargin', '100px');
 ```
