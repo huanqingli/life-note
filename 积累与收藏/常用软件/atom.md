@@ -2,7 +2,7 @@
 
 #### 核心快捷键
 - `cmd-shift-P`: 打开命令面板。
-- `cmd-o`: 打开新项目/文件。（可同时打开到个文件夹）
+- `cmd-o`: 打开新项目/文件。（可同时打开多个文件夹，按住 `shift` 在当前窗口打开）
 - `cmd-P`: 查找文件。
 - `cmd-k right [left up down]`: 从某方向新打开面板。
 - `cmd-w`: 关闭焦点所在文件。
@@ -12,6 +12,7 @@
 - `cmd-i`: 运行代码。
 - `cmd-,`: 打开设置。
 - `ctrl-shift-o`: 打开光标所在链接。
+- `cmd-shift-c`: 打开颜色选择器。
 
 ---
 - `ctrl-p [n b f]`: 光标上下左右。
@@ -26,7 +27,8 @@
 - `cmd-j`: 下一行拼接到当前行尾。
 - `alt-cmd-[`: 折叠代码块。
 - `alt-cmd-]`: 展开代码块。
-- `cmd-enter`: 另起一行。
+- `cmd-enter`: 另起一行。按住 `shift` 在当前行上边另起一行。
+- `ctrl-t`: 颠倒光标两边字符。
 
 #### 自带插件
 ##### find and replace
@@ -79,3 +81,5 @@
 `cmd-r cmd-r`: 打开正则表达式工具。
 ##### Atom Beautify
 `ctrl-alt-b`: 一键格式化代码。
+##### Prettier Atom
+`ctrl-alt-f`: 按 eslint 标准格式化代码。
