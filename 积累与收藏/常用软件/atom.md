@@ -13,6 +13,7 @@
 - `cmd-,`: 打开设置。
 - `ctrl-shift-o`: 打开光标所在链接。
 - `cmd-shift-c`: 打开颜色选择器。
+- `cmd-.`: 查询快捷键。
 
 ---
 - `ctrl-p [n b f]`: 光标上下左右。
@@ -52,11 +53,11 @@
 - `l`: 展开目录/打开文件。同 `right`
 
 ##### bookmarks
-- 快捷键待修改
+- `ctrl-1`: 标记/取消 书签。
+- `ctrl-2`: 查看书签列表。
+- `ctrl-3`: 取消所有书签。
 
 #### 三方插件
-##### emmet
-
 ##### markdown-writer
 - `alt-l` : 插入链接
 - `alt-i` : 插入图片
@@ -83,3 +84,5 @@
 `ctrl-alt-b`: 一键格式化代码。
 ##### Prettier Atom
 `ctrl-alt-f`: 按 eslint 标准格式化代码。
+##### emmet
+`ctrl-e`: 展开标签。
