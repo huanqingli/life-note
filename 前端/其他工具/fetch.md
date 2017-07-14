@@ -37,6 +37,6 @@ fetch('/users', {
   })//GET与HEAD请求不能有body
 })
 //**********************************************
-//
+// application/x-www-form-urlencoded 传递键值对时候，给body传递个字符串，用 ＝ 分隔健和值 如下
+body: `username=${user.get('firstName')}&password=${user.get('email')}`
 ```
-
