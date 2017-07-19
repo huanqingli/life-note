@@ -101,7 +101,7 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 - `git checkout [branchNameA]`:指针(HEAD)切换到分支A，工作区也会切换到该分支最后一次提交的样子。  
 可选参数：  
 `-b`： 新建分支并切换。和新建分支特性相同。
-- `git merge [branchNameA]`：将分支A合并到当前分支。(只要 A 是当前分支提交历史上的一个点就可以了。)
+- `git merge [branchNameA]`：将分支A合并到当前分支。(只要当前分支是 A 提交历史上的一个点就可以了。)
 - `git git-cherry-pick`: 后接版本号（可接多个），在当前分支重演某（几）次提交。（将某次提交的修改内容拉过来）
 - `git rebase`: 称为变基，后边接要拉过来的分支，把两条分支变一条。(会把本分支的commits顶到最顶端),遇到冲突会停顿，解决后 `git rebase --continue` 继续，直到合并完成。  
 **个人认为最适合用在本地分支与其跟踪的远程分支产生冲突的时候，本来就是两个分支应该用merge保留分支历史,我认为唯一合理的变基操作就是本地分支 rebase 自己跟踪的远程分支**
@@ -116,7 +116,7 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 - `git push [remotename] --delete [branch]`：从 origin 仓库**删除** branch 分支，还会删除本地的远程分支。(`--force` 会不解决冲突，强制覆盖)
 
 #### 远程仓库
-- `git remote`: 列出远程仓库。  
+- `git remote`: 列出远程仓库。
 可选参数:  
 `-v`: 显示远程仓库url。  
 - `git remote add [shortname] [url]`: 添加远程仓库，并命名。
