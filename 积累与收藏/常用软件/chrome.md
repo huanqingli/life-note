@@ -2,8 +2,9 @@
 #### 1. 插件
 - Tabs Outliner 管理标签神器
 - Octotree 查看github源码结构
-- Bookmark Sidebar 侧边栏书签
-- LastPass 密码管理
+- SimilarWeb 网站排行查询
+- ~~Bookmark Sidebar 侧边栏书签~~
+- ~~LastPass 密码管理~~
 - 广告终结者 拦截广告
 
 #### 2. 使用技巧
