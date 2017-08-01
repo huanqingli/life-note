@@ -241,3 +241,5 @@ const { Person } = require('../models')
 // 可以使用啦
 
 ```
+
+#### 使用数据模型
