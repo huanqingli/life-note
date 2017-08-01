@@ -95,9 +95,8 @@ const Foo = sequelize.define('foo', {
     },
     afterValidate: (user, options) => {
       user.username = 'Toni';
-    }
-}  // 生命周期钩子
-
+    } // 生命周期钩子
+}
   // Enable optimistic locking.  When enabled, sequelize will add a version count attribute
   // to the model and throw an OptimisticLockingError error when stale instances are saved.
   // Set to true or a string with the attribute name you want to use to enable.
@@ -243,3 +242,200 @@ const { Person } = require('../models')
 ```
 
 #### 使用数据模型
+```javascript
+// 查找
+// 通过 id 查找
+Project.findById(123).then(project => {
+  // project will be an instance of Project and stores the content of the table entry
+  // with id 123. if such an entry is not defined you will get null
+})
+// 通过限制条件查找一项
+Project.findOne({ where: {title: 'aProject'} }).then(project => {
+  // project will be the first entry of the Projects table with the title 'aProject' || null
+})
+// 查找全部
+Project.findAll({ where: { id: [1,2,3] } }).then(projects => {
+  // projects will be an array of Projects having the id 1, 2 or 3
+  // this is actually doing an IN query
+})
+// 查找全部符合条件项并统计
+Project
+.findAndCountAll({
+   attributes: ['foo', 'bar']  // 查询哪些列
+   where: {
+      title: {
+        $like: 'foo%' // 其他筛选条件见下文
+      }
+   },
+   offset: 10,
+   limit: 2    // 还有 order group
+})
+.then(result => {
+  console.log(result.count); // 条数
+  console.log(result.rows);  // 对象组成的数组
+});
+// 只计数
+Project.count({ where: {'id': {$gt: 25}} }).then(c =>
+  console.log("There are " + c + " projects with an id greater than 25.")
+})
+// 寻找最大的值，最小值，求和
+/*
+  Let's assume 3 person objects with an attribute age.
+  The first one is 10 years old,
+  the second one is 5 years old,
+  the third one is 40 years old.
+*/
+Project.max('age').then(max => {
+  // this will return 40
+})
+Project.max('age', { where: { age: { lt: 20 } } }).then(max => {
+  // will be 10
+}) // min sum 同样可做限制
+Project.min('age').then(min => {
+  // this will return 5
+})
+Project.sum('age').then(sum => {
+  // this will return 55
+})
+
+// 筛选条件
+$and: {a: 5}           // AND (a = 5)
+$or: [{a: 5}, {a: 6}]  // (a = 5 OR a = 6)
+$gt: 6,                // > 6
+$gte: 6,               // >= 6
+$lt: 10,               // < 10
+$lte: 10,              // <= 10
+$ne: 20,               // != 20
+$eq: 3,                // = 3
+$not: true,            // IS NOT TRUE
+$between: [6, 10],     // BETWEEN 6 AND 10
+$notBetween: [11, 15], // NOT BETWEEN 11 AND 15
+$in: [1, 2],           // IN [1, 2]
+$notIn: [1, 2],        // NOT IN [1, 2]
+$like: '%hat',         // LIKE '%hat'
+$notLike: '%hat'       // NOT LIKE '%hat'
+$iLike: '%hat'         // ILIKE '%hat' (case insensitive) (PG only)
+$notILike: '%hat'      // NOT ILIKE '%hat'  (PG only)
+$regexp: '^[h|a|t]'    // REGEXP/~ '^[h|a|t]' (MySQL/PG only)
+$notRegexp: '^[h|a|t]' // NOT REGEXP/!~ '^[h|a|t]' (MySQL/PG only)
+$iRegexp: '^[h|a|t]'    // ~* '^[h|a|t]' (PG only)
+$notIRegexp: '^[h|a|t]' // !~* '^[h|a|t]' (PG only)
+$like: { $any: ['cat', 'hat']}
+                       // LIKE ANY ARRAY['cat', 'hat'] - also works for iLike and notLike
+$overlap: [1, 2]       // && [1, 2] (PG array overlap operator)
+$contains: [1, 2]      // @> [1, 2] (PG array contains operator)
+$contained: [1, 2]     // <@ [1, 2] (PG array contained by operator)
+$any: [2,3]            // ANY ARRAY[2, 3]::INTEGER (PG only)
+//举例
+{
+  rank: {
+    $or: {
+      $lt: 1000,
+      $eq: null
+    }
+  }
+}
+// rank < 1000 OR rank IS NULL
+{
+  createdAt: {
+    $lt: new Date(),
+    $gt: new Date(new Date() - 24 * 60 * 60 * 1000)
+  }
+}
+// createdAt < [timestamp] AND createdAt > [timestamp]
+{
+  $or: [
+    {
+      title: {
+        $like: 'Boat%'
+      }
+    },
+    {
+      description: {
+        $like: '%boat%'
+      }
+    }
+  ]
+}
+// title LIKE 'Boat%' OR description LIKE '%boat%'
+// 下面两者等价
+Project.findOne({
+  where: {
+    name: 'a project',
+    $or: [
+      { id: [1,2,3] },
+      { id: { $gt: 10 } }
+    ]
+  }
+})
+Project.findOne({
+  where: {
+    name: 'a project',
+    id: {
+      $or: [
+        [1,2,3],
+        { $gt: 10 }
+      ]
+    }
+  }
+})
+
+// 创建数据对象
+const project = Project.build({
+  title: 'my awesome project',
+  description: 'woot woot. this will make me a rich man'
+}) // 注意！ 目前并没有保存
+project.title // 'my awesome project'
+task.save().catch(error => {
+  // mhhh, wth!
+}) // 这才保存
+// 完整创建后保存
+Task
+  .build({ title: 'foo', description: 'bar', deadline: new Date() })
+  .save()
+  .then(anotherTask => {
+    // you can now access the currently saved task with the variable anotherTask... nice!
+  })
+  .catch(error => {
+    // Ooops, do some error-handling
+  })
+// 或者
+Task.create({ title: 'foo', description: 'bar', deadline: new Date() }).then(task => {
+  // you can now access the newly created task via the variable task
+})
+// 批量创建
+User.bulkCreate([
+  { username: 'barfooz', isAdmin: true },
+  { username: 'foo', isAdmin: true },
+  { username: 'bar', isAdmin: false }
+]，{ validate: true }).then(() => { // Notice: There are no arguments here, as of right now you'll have to...
+  return User.findAll();
+}).then(users => {
+  console.log(users) // ... in order to get the array of user objects
+}) // bulkCreate 需要手动开启验证{ validate: true }
+
+// 修改数据对象
+// way 1
+task.title = 'a very different title now'
+task.save().then(() => {})
+// way 2
+task.update({
+  title: 'a very different title now'
+}).then(() => {})
+// 批量更新
+Task.update(
+  { status: 'inactive' }, /* set attributes' value */,
+  { where: { subject: 'programming' }} /* where criteria */
+);
+
+// 删除数据对象
+task.destroy({ force: true })  // { force: true } 令 paranoid 为 true 时依然删除
+// 批量删除
+Task.destroy({
+  where: {
+    subject: 'programming'
+  },
+  truncate: true /* this will ignore where and truncate the table instead */
+});
+
+```

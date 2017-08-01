@@ -121,7 +121,7 @@
 	- [版本管理(n)](后端/Node/版本管理(n).md)
 	- 包管理工具(npm,yarn)
 - #### 数据库
-	- SQL
+	- [SQL](后端/数据库/SQL.md)
 	- mySQL
 	- mongoDB
 	- 数据库设计
