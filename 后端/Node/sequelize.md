@@ -439,3 +439,69 @@ Task.destroy({
 });
 
 ```
+
+#### 关联数据模型
+```javascript
+// 一对一 归属关系
+const Player = this.sequelize.define('player', {/* attributes */});
+const Team  = this.sequelize.define('team', {/* attributes */});
+Player.belongsTo(Team); // Will add a teamId attribute to Player to hold the primary key value for Team
+// 自定义外键
+const User = this.sequelize.define('user', {/* attributes */})
+const Company  = this.sequelize.define('company', {/* attributes */});
+User.belongsTo(Company, {foreignKey: 'fk_company'}); // Adds fk_company to User 外键在 User 表格产生
+// 自定义锚点 默认是目标表的主键
+User.belongsTo(Company, {foreignKey: 'fk_companyname', targetKey: 'name'}); // Adds fk_companyname to User
+
+// 一对一 包含关系 与 belongsTo 相反 也可以自定义外键等
+const User = sequelize.define('user', {/* ... */})
+const Project = sequelize.define('project', {/* ... */})
+Project.hasOne(User) // 外键在 User 表格产生
+
+// 一对多 包含关系
+const City = sequelize.define('city', { countryCode: Sequelize.STRING });
+const Country = sequelize.define('country', { isoCode: Sequelize.STRING });
+// Here we can connect countries and cities base on country code
+Country.hasMany(City, {foreignKey: 'countryCode', sourceKey: 'isoCode'}); // 锚点 isoCode
+City.belongsTo(Country, {foreignKey: 'countryCode', targetKey: 'isoCode'}); // 锚点 isoCode
+// 一个城市只归属一个国家，一个国家可以有好多城市
+
+// 多对多关系
+Project.belongsToMany(User, {through: 'UserProject'});
+User.belongsToMany(Project, {through: 'UserProject'});
+// This will create a new model called UserProject with the equivalent foreign keys projectId and userId
+
+// 设置/删除/读取关联的项
+Project.belongsToMany(Task)
+Task.belongsToMany(Project)
+Project.create()...
+Task.create()...
+Task.create()...
+// save them... and then:
+project.setTasks([task1, task2]).then(() => {
+  // saved!
+})
+// ok, now they are saved... how do I get them later on?
+project.getTasks().then(associatedTasks => {
+  // associatedTasks is an array of tasks
+})
+// You can also pass filters to the getter method.
+// They are equal to the options you can pass to a usual finder method. // 过滤查询结果
+project.getTasks({ where: 'id > 10' }).then(tasks => {
+  // tasks with an id greater than 10 :)
+})
+// You can also only retrieve certain fields of a associated object.  // 选择某些列
+project.getTasks({attributes: ['title']}).then(tasks => {
+  // retrieve tasks with the attributes "title" and "id"
+})
+// 通过设置关联项为空或者新的关联项，来删除旧的关联项
+// remove the association with task1
+project.setTasks([task2]).then(associatedTasks => {
+  // you will get task2 only
+})
+// remove 'em all
+project.setTasks([]).then(associatedTasks => {
+  // you will get an empty array
+})
+
+```
