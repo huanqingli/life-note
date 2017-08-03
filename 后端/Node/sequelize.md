@@ -1,4 +1,10 @@
 ## [sequelize](http://docs.sequelizejs.com/manual/installation/getting-started.html)
+### 目录
+- [连接数据库](#连接数据库)
+- [定义数据模型](#定义数据模型)
+- [使用数据模型](#使用数据模型)
+- [关联数据模型](#关联数据模型)
+- [预定义查询](#预定义查询)
 #### 链接数据库
 ```javascript
 const sequelize = new Sequelize('database', 'username', 'password', {
@@ -56,11 +62,9 @@ const Foo = sequelize.define('foo', {
  // It is possible to create foreign keys:
  bar_id: {
    type: Sequelize.INTEGER,
-
    references: {
      // This is a reference to another model
      model: Bar,
-
      // This is the column name of the referenced model
      key: 'id'
    }
@@ -71,32 +75,34 @@ const Foo = sequelize.define('foo', {
   timestamps: false,
   // I want updatedAt to actually be called updateTimestamp
   updatedAt: 'updateTimestamp', // 重命名该自动生成的列
-
   // don't delete database entries but set the newly added attribute deletedAt
   // to the current date (when deletion was done). paranoid will only work if
   // timestamps are enabled
   paranoid: true,
-
   // don't use camelcase for automatically added attributes but underscore style
   // so updatedAt will be updated_at
   underscored: true,  // 使用下划线列名，不用驼峰
-
   // disable the modification of table names; By default, sequelize will automatically
   // transform all passed model names (first parameter of define) into plural.
   // if you don't want that, set the following
   freezeTableName: true,  // 不自动修改表名
-
   // define the table's name
   tableName: 'my_very_custom_table_name',  // 设置表名
-
+  scopes: {
+    deleted: {
+      where: {
+        deleted: true
+      }
+    },
+  } // 预定义查询(见下方预定义查询标题)
   hooks: {
     beforeValidate: (user, options) => {
       user.mood = 'happy';
     },
     afterValidate: (user, options) => {
       user.username = 'Toni';
-    } // 生命周期钩子
-}
+  } // 生命周期钩子(见下方生命周期钩子标题)
+  }
   // Enable optimistic locking.  When enabled, sequelize will add a version count attribute
   // to the model and throw an OptimisticLockingError error when stale instances are saved.
   // Set to true or a string with the attribute name you want to use to enable.
@@ -125,6 +131,7 @@ underscored            // 使用下划线命名列 默认 false(驼峰)
 freezeTableName        // 不自动规范表名 默认 false(自动规范表名)
 tableName              // 设置表名 freezeTableName 需要为 true
 hooks                  // 对象类型 设置不同生命周期触发的函数 [详见](http://docs.sequelizejs.com/manual/tutorial/hooks.html#declaring-hooks)
+scopes                 // 预定义查询
 
 // 数据类型 写在每一列的配置中，关键字 type
 // 字符串
@@ -216,6 +223,8 @@ Project.[sync|drop]().then(() => {
 }).catch(error => {
   // 失败后我要。。。
 })
+// Sync all models that aren't already in the database
+sequelize.sync()
 
 // 将定义的表统一管理
 // models/person.js
@@ -471,7 +480,7 @@ Project.belongsToMany(User, {through: 'UserProject'});
 User.belongsToMany(Project, {through: 'UserProject'});
 // This will create a new model called UserProject with the equivalent foreign keys projectId and userId
 
-// 设置/删除/读取关联的项
+// 设置/删除/添加/读取关联的项
 Project.belongsToMany(Task)
 Task.belongsToMany(Project)
 Project.create()...
@@ -503,5 +512,58 @@ project.setTasks([task2]).then(associatedTasks => {
 project.setTasks([]).then(associatedTasks => {
   // you will get an empty array
 })
+// 通过被关联项删除
+task2.setProject(null).then(function() {
+  // and it's gone
+})
+// 直接删除
+// or remove 'em more directly
+project.removeTask(task1).then(() => {
+  // it's gone
+})
+// 添加关联项
+project.addTask(task1).then(() => {
+  // saved!
+})
+```
 
+#### 预定义查询
+```sql
+// 在定义表时的统一配置项中定义
+defaultScope: {  // 每次查询默认使用
+  where: {
+    active: true
+  }
+},  
+scopes: {        // 使用时需调用
+  deleted: {
+    where: {
+      deleted: true
+    }
+  },
+  activeUsers: {
+    include: [
+      { model: User, where: { active: true }}
+    ]
+  },
+  random: function () {
+    return {
+      where: {
+        someNumber: Math.random()
+      }
+    }
+  },
+  accessLevel: function (value) {
+    return {
+      where: {
+        accessLevel: {
+          $gte: value
+        }
+      }
+    }
+  }
+}
+
+// 使用方法，启用上面的预定义
+Project.scope('deleted', 'random', { method: ['accessLevel', 19]}).findAll();
 ```
