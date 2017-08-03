@@ -481,13 +481,16 @@ User.belongsToMany(Project, {through: 'UserProject'});
 // This will create a new model called UserProject with the equivalent foreign keys projectId and userId
 
 // 设置/删除/添加/读取关联的项
-Project.belongsToMany(Task)
-Task.belongsToMany(Project)
+Project.belongsToMany(Task)     
+Task.belongsToMany(Project)      // ! ! ! 使用该句给 task 实例对象添加方法后才能使用以下方法
 Project.create()...
 Task.create()...
 Task.create()...
 // save them... and then:
 project.setTasks([task1, task2]).then(() => {
+  // saved!
+})
+project.createTask({name:...}).then(() => {
   // saved!
 })
 // ok, now they are saved... how do I get them later on?
@@ -513,7 +516,7 @@ project.setTasks([]).then(associatedTasks => {
   // you will get an empty array
 })
 // 通过被关联项删除
-task2.setProject(null).then(function() {
+task2.setProjects(null).then(function() {
   // and it's gone
 })
 // 直接删除
@@ -525,6 +528,8 @@ project.removeTask(task1).then(() => {
 project.addTask(task1).then(() => {
   // saved!
 })
+// 关联操作容易出问题 查看数据实例对象上的方法
+console.log(project.__proto__)
 ```
 
 #### 预定义查询
