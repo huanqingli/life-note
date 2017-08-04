@@ -88,6 +88,7 @@
 - #### 其他工具
 	- [webpack](前端/其他工具/webpack.md)
 	- [moment](前端/其他工具/moment.md)
+	- [mocha(测试)](后端/Node/mocha.md)
 	- Immutable
 	- eslint
 	- [lodash快捷查询](前端/其他工具/lodash快捷查询.md)
@@ -114,8 +115,9 @@
 - #### Node
 	- node备忘
 	- [express](后端/Node/express.md)
+	- [mocha(测试)](后端/Node/mocha.md)
 	- 内置模块
-	- [连接数据库](后端/Node/sequelize.md)
+	- [连接 SQL 数据库](后端/Node/sequelize.md)
 	- 登录认证
 	- [常用包](后端/Node/常用包.md)
 	- [版本管理(n)](后端/Node/版本管理(n).md)

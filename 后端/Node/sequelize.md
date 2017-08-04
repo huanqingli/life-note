@@ -5,6 +5,8 @@
 - [使用数据模型](#使用数据模型)
 - [关联数据模型](#关联数据模型)
 - [预定义查询](#预定义查询)
+- [生命周期钩子](#生命周期钩子)
+- [数据库迁移操作](http://docs.sequelizejs.com/manual/tutorial/migrations.html)
 #### 链接数据库
 ```javascript
 const sequelize = new Sequelize('database', 'username', 'password', {
@@ -306,6 +308,12 @@ Project.min('age').then(min => {
 Project.sum('age').then(sum => {
   // this will return 55
 })
+// 原生 SQL 语句查询 详见文档
+sequelize.query('SELECT * FROM users WHERE name LIKE :search_name ',
+  { replacements: { search_name: 'ben%'  }, type: sequelize.QueryTypes.SELECT }
+).then(projects => {
+  console.log(projects)
+})
 
 // 筛选条件
 $and: {a: 5}           // AND (a = 5)
@@ -528,6 +536,7 @@ project.removeTask(task1).then(() => {
 project.addTask(task1).then(() => {
   // saved!
 })
+// 这 set get 后面有时候是单数有时候是复数 全都是套路啊
 // 关联操作容易出问题 查看数据实例对象上的方法
 console.log(project.__proto__)
 ```
@@ -571,4 +580,82 @@ scopes: {        // 使用时需调用
 
 // 使用方法，启用上面的预定义
 Project.scope('deleted', 'random', { method: ['accessLevel', 19]}).findAll();
+```
+
+#### 生命周期钩子
+```javascript
+// 执行顺序
+(1)
+  beforeBulkCreate(instances, options)
+  beforeBulkDestroy(options)
+  beforeBulkUpdate(options)
+(2)
+  beforeValidate(instance, options)
+(-)
+  validate
+(3)
+  afterValidate(instance, options)
+  - or -
+  validationFailed(instance, options, error)
+(4)
+  beforeCreate(instance, options)
+  beforeDestroy(instance, options)
+  beforeUpdate(instance, options)
+  beforeSave(instance, options)
+  beforeUpsert(values, options)
+(-)
+  create
+  destroy
+  update
+(5)
+  afterCreate(instance, options)
+  afterDestroy(instance, options)
+  afterUpdate(instance, options)
+  afterSave(instance, options)
+  afterUpsert(created, options)
+(6)
+  afterBulkCreate(instances, options)
+  afterBulkDestroy(options)
+  afterBulkUpdate(options)
+
+// 在定义表时的统一配置项中定义
+hooks: {
+  beforeValidate: (user, options) => {
+    user.mood = 'happy';
+  },
+  afterValidate: (user, options) => {
+    user.username = 'Toni';
+  }
+}
+// 链接数据库时定义全局的钩子
+const sequelize = new Sequelize(..., {
+    define: {
+        hooks: {
+            beforeCreate: () => {
+                // Do stuff
+            }
+        }
+    }
+});
+// 通过表的 hooks 方法
+User.hook('afterValidate', (user, options) => {
+  return sequelize.Promise.reject(new Error("I'm afraid I can't let you do that!"));
+});
+// 直接在表上定义
+User.beforeCreate((user, options) => {
+  return hashPassword(user.password).then(hashedPw => {
+    user.password = hashedPw;
+  });
+});
+
+// 添加移除 hooks
+//表级别添加
+Book.addHook('afterCreate', 'notifyUsers', (book, options) => {
+  // ...
+});
+// 库级别添加
+sequelize.addHook('beforeCreate', () => {
+    // Do stuff
+});
+Book.removeHook('afterCreate', 'notifyUsers');
 ```
