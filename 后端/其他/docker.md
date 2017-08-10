@@ -84,10 +84,18 @@ networks:
 集群中的机器可以是物理的或者虚拟的，加入集群后作为一个节点(workers)  
 通过 docker-compose.yml 指导主节点使用怎样的部署策略  
 
-- 建立集群:
+- 建立集群:  
+以下命令都在代表 主/从 节点的 主/虚 机中执行  
 `docker swarm init`  
 成功建立集群后，会提示其他机器加入该集群的命令  
 - 查看集群中的机器:
 `docker node ls`  
-
+- 拷贝 yml 文件到主节点根目录:  
+`docker-machine scp docker-compose.yml <节点名>:~`  
+- 在集群中部署:  
+`docker stack deploy -c docker-compose.yml <getstartedlab>`  
+- 查看运行中的服务:  
+`docker stack ps <getstartedlab>`  
+- 停止集群:  
+`docker stack rm <getstartedlab>`  
 #### Dockerfile
