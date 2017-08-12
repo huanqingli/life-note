@@ -1,4 +1,14 @@
 ## AWS
+### 当前服务器情况
+已安装软件:
+- nvm
+- node(通过 nvm 管理)
+- yarn(npm安装)
+- git
+- nginx
+- mysql56-server
+- mongodb-org
+
 ### aws-cli
 - 查看实例详情: `aws ec2 describe-instances --output table`
 - 从 s3 上传/下载/删除数据  
