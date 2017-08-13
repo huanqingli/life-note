@@ -2,12 +2,14 @@
 ### 当前服务器情况
 已安装软件:
 - nvm
-- node(通过 nvm 管理)
-- yarn(npm安装)
+- node             (通过 nvm 管理)
+- yarn             (npm安装)
 - git
-- nginx
+- nginx            (位于/etc/nginx)
 - mysql56-server
 - mongodb-org
+- vsftpd
+- pm2              (npm安装)
 
 ### aws-cli
 - 查看实例详情: `aws ec2 describe-instances --output table`
