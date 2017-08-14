@@ -153,5 +153,6 @@
 	- [chrome](积累与收藏/常用软件/chrome.md)  
 	- [oh-my-zsh](积累与收藏/常用软件/oh-my-zsh.md)
 	- [atom](积累与收藏/常用软件/atom.md)
+	- [aws](积累与收藏/常用软件/aws.md)
 - #### 好文章与好项目
 	- [CodePen 里的好东西](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%A5%BD%E6%96%87%E7%AB%A0%E4%B8%8E%E5%A5%BD%E9%A1%B9%E7%9B%AE/CodePen%E9%87%8C%E7%9A%84%E5%A5%BD%E4%B8%9C%E8%A5%BF.md)  

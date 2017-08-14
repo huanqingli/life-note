@@ -18,7 +18,7 @@
 - last-working-dir： 自动进入上次工作的目录。
 - web-search： 使用默认浏览器搜索，例如，`baidu 知乎`
 - z: 模糊匹配路径，（匹配通过cd访问过的路径）
-- h: 查看历史命令，`h` 查看所有历史命令，`hsi xxx` 查看带有xxx的历史命令
+- history: 查看历史命令，`h` 查看所有历史命令，`hsi xxx` 查看带有xxx的历史命令
 - osx: [mac终端的小工具](#osx)
 - git: git支持[全部别名](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git) [常用别名](#git)
 

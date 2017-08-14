@@ -17,6 +17,7 @@
 - 查看端口情况: `netstat -tpln`
 - 查看某应用进程: `ps -ef |grep <应用名>`
 - 查找内容: `whereis <内容>`
+- 退出 shell: `exit`
 
 ### 用户操作
 - 添加用户: `useradd -d /home/huanqing -m -g root huanqing`     

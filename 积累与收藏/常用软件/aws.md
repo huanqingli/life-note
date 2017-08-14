@@ -10,6 +10,8 @@
 - mongodb-org
 - vsftpd
 - pm2              (npm安装)
+- zsh
+- oh-my-zsh
 
 ### aws-cli
 - 查看实例详情: `aws ec2 describe-instances --output table`
