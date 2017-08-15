@@ -21,7 +21,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
     idle: 10000
   },
 });
-
+//
 // 测试链接
 sequelize
   .authenticate()
@@ -44,7 +44,7 @@ const Task = sequelize.define('task', {
   description: Sequelize.TEXT,
   deadline: Sequelize.DATE
 })
-
+//
 // 较复杂模型，对每一列进行配置，并配有统一配置项
 const Foo = sequelize.define('foo', {
  // instantiating will automatically set the flag to true if not set
@@ -110,7 +110,7 @@ const Foo = sequelize.define('foo', {
   // Set to true or a string with the attribute name you want to use to enable.
   version: true
 })
-
+//
 // 每一列的可选配置
 type                   // 数据类型
 allowNull              // 是否允许 null 默认 true
@@ -121,7 +121,7 @@ field                  // 数据库表里真实的列名(列的 key 值可以不
 autoIncrement          // 默认 false
 validate               // 验证规则 类型为对象
 references             // 外健 类型为对象 关键字 model(连接的表) key(连接的表的列)
-
+//
 // 表的统一配置 与默认配置项合并
 omitNull               // 禁止所有列的 null 值
 timestamps             // 是否包含 createdAt 和 updatedAt 列 默认 true
@@ -134,7 +134,7 @@ freezeTableName        // 不自动规范表名 默认 false(自动规范表名)
 tableName              // 设置表名 freezeTableName 需要为 true
 hooks                  // 对象类型 设置不同生命周期触发的函数 [详见](http://docs.sequelizejs.com/manual/tutorial/hooks.html#declaring-hooks)
 scopes                 // 预定义查询
-
+//
 // 数据类型 写在每一列的配置中，关键字 type
 // 字符串
 Sequelize.STRING                      // VARCHAR(255)
@@ -165,7 +165,7 @@ Sequelize.DATEONLY                    // DATE without time.
 Sequelize.BOOLEAN                     // TINYINT(1)
 // 枚举类型
 Sequelize.ENUM('value 1', 'value 2')  // An ENUM with allowed values 'value 1' and 'value 2'
-
+//
 // 验证规则 写在每列的配置中 关键字 validate
 // 创建，更新，保存时自动应用
 is: ["^[a-z]+$",'i'],     // will only allow letters
@@ -208,7 +208,7 @@ isEven(value) {
     // would get the value of otherField if it existed
   }
 }
-
+//
 // 创建/删除 数据表
 //创建
 // Create the tables:
@@ -227,7 +227,7 @@ Project.[sync|drop]().then(() => {
 })
 // Sync all models that aren't already in the database
 sequelize.sync()
-
+//
 // 将定义的表统一管理
 // models/person.js
 module.exports = (sequelize, DataTypes) =>
@@ -249,7 +249,6 @@ module.exports = { Person, //其他表..... }
 // routes/some-router.js
 const { Person } = require('../models')
 // 可以使用啦
-
 ```
 
 #### 使用数据模型

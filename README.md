@@ -20,7 +20,7 @@
 
 ## 生活部分
 - **读书**
-	- [书单](https://github.com/huanqingli/life-note/blob/master/%E8%AF%BB%E4%B9%A6/%E4%B9%A6%E5%8D%95.md)
+	- [书单](读书/书单.md)
 	- [读书笔记](#读书笔记)
 - **原创文章**
 	- [技术类](#技术类)
@@ -29,7 +29,7 @@
 	- [计算机常识](#计算机常识)
 	- [常用软件](#常用软件)
 	- [好文章与好项目](#好文章与好项目)
-	- [歌单](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E6%AD%8C%E5%8D%95.md)
+	- [歌单](积累与收藏/歌单.md)
 - **简历**
 	- PDF版
 	- 打字机版
@@ -48,15 +48,15 @@
 	- 本地储存
 - #### CSS
 	- CSS备忘
-	- [CSS Modules](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/CSS/css-modules.md)
+	- [CSS Modules](前端/CSS/css-modules.md)
 	- CSS动画
-	- [CSS变量（自定义属性）](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/CSS/CSS%E5%8F%98%E9%87%8F%EF%BC%88%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%EF%BC%89.md)
+	- [CSS变量（自定义属性）](前端/CSS/CSS变量(自定义属性).md)
 	- flex布局
 	- 自适应布局相关
 - #### javaScript
 	- js备忘
 	- AJAX
-	- [fetch](https://github.com/huanqingli/life-note/blob/master/%E5%89%8D%E7%AB%AF/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/fetch.md)
+	- [fetch](前端/javascript/fetch.md)
 	- 跨域
 	- DOM操作
 	- 正则表达式
@@ -140,7 +140,7 @@
 	- [webpack-科学分离第三方库](原创文章/技术类/webpack-科学分离第三方库.md)
 	- [async/await与promise(js异步操作).md](原创文章/技术类/async\await与promise(js异步操作).md)
 - #### 生活类
-	- [你是自由的么](https://github.com/huanqingli/life-note/blob/master/%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0/%E7%94%9F%E6%B4%BB%E7%B1%BB/%E4%BD%A0%E6%98%AF%E8%87%AA%E7%94%B1%E7%9A%84%E4%B9%88.md)
+	- [你是自由的么](原创文章/生活类/你是自由的么.md)
 - #### 读书笔记
 
 ### 积累与收藏
@@ -155,4 +155,4 @@
 	- [atom](积累与收藏/常用软件/atom.md)
 	- [aws](积累与收藏/常用软件/aws.md)
 - #### 好文章与好项目
-	- [CodePen 里的好东西](https://github.com/huanqingli/life-note/blob/master/%E7%A7%AF%E7%B4%AF%E4%B8%8E%E6%94%B6%E8%97%8F/%E5%A5%BD%E6%96%87%E7%AB%A0%E4%B8%8E%E5%A5%BD%E9%A1%B9%E7%9B%AE/CodePen%E9%87%8C%E7%9A%84%E5%A5%BD%E4%B8%9C%E8%A5%BF.md)  
+	- [CodePen 里的好东西](积累与收藏/好文章与好项目/CodePen里的好东西.md)  
