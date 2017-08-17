@@ -72,6 +72,7 @@
 	- 常用包
 	- React-router
 	- Redux
+	- react-motion
 - #### ES6标准
 	- ES6基础
 	- Iterator 遍历器
