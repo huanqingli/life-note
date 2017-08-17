@@ -138,3 +138,7 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 - `git bisect good [good_commit]`: 声明一个没有该bug的版本。  
 此时 git 会检出中间的一个版本，`git bisect bad`来标记该版本有 bug， `git bisect good`来标记该版本正常。重复该步骤，知道找到某版本最先引入该 bug ，返回版本号和相关信息。
 - `git bisect reset`: 回到最开始的位置。
+
+#### 代理设置
+- 设置代理: git config --global http.proxy 10.167.32.133:8080
+- 取消代理: git config --system (或 --global 或 --local) --unset http.proxy
