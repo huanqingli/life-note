@@ -7,6 +7,8 @@ Async/await的主要益处是可以避免回调地狱（callback hell）问题�
 - async 表示这是一个async函数，await只能用在这个函数里面。async 对象也是一个 promise 对象。
 - await 表示在这里等待 promise 返回结果了，再继续执行。
 - await 后面跟着的应该是一个 promise 对象（当然，其他返回值也没关系，不过那样就没有意义了…）
+- 很多库的接口返回 promise 对象，await 后赋值给一个变量后使用其 resolve 的值。[例如](http://mongoosejs.com/docs/api.html#query_Query-exec)
+- 注意三点，promise 对象的状态，promise 对象上的方法(then,catch),promise 对象返回的值。
 
 #### 举例：
 - 获取返回值
@@ -118,3 +120,4 @@ var showArticle = async function () {
     showArticle();
 ```
 [参考](http://es6.ruanyifeng.com/#docs/async)
+[参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)

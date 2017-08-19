@@ -117,7 +117,7 @@
 	- node备忘
 	- [express](后端/Node/express.md)
 	- [mocha(测试)](后端/Node/mocha.md)
-	- 内置模块
+	- [内置模块](后端/Node/内置模块.md)
 	- [连接 SQL 数据库](后端/Node/sequelize.md)
 	- 登录认证
 	- [常用包](后端/Node/常用包.md)
