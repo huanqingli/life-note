@@ -13,6 +13,11 @@
 - zsh
 - oh-my-zsh
 
+### 配置修改
+nginx:
+－user nginx;
+＋user root;
+
 ### aws-cli
 - 查看实例详情: `aws ec2 describe-instances --output table`
 - 从 s3 上传/下载/删除数据  
