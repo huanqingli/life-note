@@ -44,8 +44,8 @@ Server: Apache-Coyote/1.1
 ﻿403，有权限，服务器拒绝请求。  
 ﻿404，服务器找不到请求的网页。服务器上不存在的网页经常会返回此代码。  
 406，没有用户请求的格式。  
-﻿410 ，请求的资源永久删除后，服务器返回此响应。  
-500 ，服务器遇到错误，无法完成请求。  
+﻿410，请求的资源永久删除后，服务器返回此响应。  
+500，服务器遇到错误，无法完成请求。  
 ﻿503，服务器目前无法使用（由于超载或停机维护）。  
 9. url格式：
 protocol : // hostname[:port] / path / [;parameters][?query]#fragment
@@ -55,3 +55,7 @@ query(查询)
 可选，用于给动态网页传递参数。  
 fragment（信息片断）  
 字符串，用于指定网络资源中的片断。  
+#### 注意
+跨域 POST 请求时:  
+如果不是 application/x-www-form-urlencoded, multipart/form-data, ortext/plain 这三种形式的请求，会先发送一个 OPTION 请求确认服务器是否授权，得不到回应会终止该 POST 请求。  
+It uses methods other than GET, HEAD or POST.  Also, if POST is used to send request data with a Content-Type other than application/x-www-form-urlencoded, multipart/form-data, ortext/plain, e.g. if the POST request sends an XML payload to the server using application/xmlor text/xml, then the request is preflighted.It sets custom headers in the request (e.g. the request uses a header such as X-PINGOTHER)  

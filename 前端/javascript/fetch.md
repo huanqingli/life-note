@@ -6,6 +6,10 @@
 检查请求状态：`response.status`
 请求成功（status值在200-299之间）：`response.ok`
 body传递键值对：`'foo=bar&blah=1'`
+#### 注意
+跨域 POST 请求时:  
+如果不是 application/x-www-form-urlencoded, multipart/form-data, ortext/plain 这三种形式的请求，会先发送一个 OPTION 请求确认服务器是否授权，得不到回应会终止该 POST 请求。  
+It uses methods other than GET, HEAD or POST.  Also, if POST is used to send request data with a Content-Type other than application/x-www-form-urlencoded, multipart/form-data, ortext/plain, e.g. if the POST request sends an XML payload to the server using application/xmlor text/xml, then the request is preflighted.It sets custom headers in the request (e.g. the request uses a header such as X-PINGOTHER)  
 #### 示例
 ```javascript
 //简单GET请求

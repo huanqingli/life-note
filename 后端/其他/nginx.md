@@ -8,7 +8,7 @@ user root;
 默认配置文件位于 /etc/nginx 主配置文件 nginx.conf  
 写配置千万别忘结尾了 ; 这个符号  
 - 重定向:
-```javascript
+```shell
 // 把 dabao.love 重定向到 www.dabao.love
 server {
     listen       80;
@@ -17,7 +17,7 @@ server {
 }
 ```
 – 路径匹配:
-```js
+```shell
 location  = / {
   # 只匹配"/".
   [ configuration A ]
@@ -40,4 +40,28 @@ location ~* .(gif|jpg|jpeg)$ {
 location / {
   try_files $uri /index.html;
 }
+```
+- 解决不显示图片的问题
+```shell
+location ~* ^.+\.(jpg|jpeg|gif|png|bmp)$ {  
+        access_log off;  
+        root html;  
+        expires 30d;  
+        break;  
+        }
+```
+- 设置压缩
+```shell
+# 开启gzip
+gzip on;
+# 启用gzip压缩的最小文件，小于设置值的文件将不会压缩
+gzip_min_length 1k;
+# gzip 压缩级别，1-10，数字越大压缩的越好，也越占用CPU时间，后面会有详细说明
+gzip_comp_level 2;
+# 进行压缩的文件类型。javascript有多种形式。其中的值可以在 mime.types 文件中找到。
+gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+# 是否在http header中添加Vary: Accept-Encoding，建议开启
+gzip_vary on;
+# 禁用IE 6 gzip
+gzip_disable "MSIE [1-6]\.";
 ```
