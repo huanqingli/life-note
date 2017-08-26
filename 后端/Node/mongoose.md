@@ -104,5 +104,52 @@ var query = { name: 'borne' };
 Model.update(query, { name: 'jason borne' }, options, callback)
 // 有 updateMany(更新全部) 和 updateOne (更新一个) 方法
 // findOneAndUpdate 有返回值，上面三种没有。
+// 还可以查到文档后直接修改然后 save，这种方式会验证数据，上面两个通过 option 开启数据验证，例如
+var opts = { runValidators: true };
+Toy.update({}, { color: 'bacon' }, opts, function (err) {
+  assert.equal(err.errors.color.message,
+  'Invalid color');
+});
 ```
 #### 检索
+#### 验证
+定义数据表是定义验证规则   
+存入数据前会自动验证，  
+手动验证: doc.validate(callback) or doc.validateSync()  
+除了 required 规则，为定义的数据不会被验证  
+update 时需要 opts = { runValidators: true } 启用验证  
+```js
+// 使用内建验证规则(可自定义错误提示)
+var breakfastSchema = new Schema({
+  eggs: {
+    type: Number,
+    min: [6, 'Too few eggs'],
+    max: 12
+  },
+  bacon: {
+    type: Number,
+    required: [true, 'Why no bacon?']
+  },
+  drink: {
+    type: String,
+    enum: ['Coffee', 'Tea'],
+    required: function() {
+      return this.bacon > 3;
+    }
+  }
+});
+// 自定义验证规则
+var userSchema = new Schema({
+  phone: {
+    type: String,
+    validate: {
+      validator: function(v) {
+        return /\d{3}-\d{3}-\d{4}/.test(v);
+      },
+      message: '{VALUE} is not a valid phone number!'
+    },
+    required: [true, 'User phone number required']
+  }
+});
+
+```
