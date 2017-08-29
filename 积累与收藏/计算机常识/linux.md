@@ -19,6 +19,9 @@
 - 查找内容: `whereis <内容>`
 - 退出 shell: `exit`
 
+### 基础配置
+- 环境变量: 在 .zshrc 文件后边加 `source ~/.bash_profile` 共享 bash 的环境变量
+
 ### 用户操作
 - 添加用户: `useradd -d /home/huanqing -m -g root huanqing`     
 // 新建用户 huanqing  

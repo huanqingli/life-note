@@ -1,7 +1,9 @@
 ## NGINX
 ### 命令
+- 启动 nginx 服务: `sudo service nginx start`
 - 不中断服务的重启(可用作重载配置): `kill -HUP <pid>` 或 `sudo nginx -s reload`
--
+- 查看 nginx 服务器运行状态 `service nginx status`
+- 加入开机自启动列表: `sudo chkconfig --add /etc/init.d/nginx`
 ### 配置
 user root;
 给 nginx 所有权限，默认 user nginx。  
