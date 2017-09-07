@@ -18,6 +18,7 @@
 - 查看某应用进程: `ps -ef |grep <应用名>`
 - 查找内容: `whereis <内容>`
 - 退出 shell: `exit`
+- 查看命令是从哪启动的(环境): `which <命令>`
 
 ### 基础配置
 - 环境变量: 在 .zshrc 文件后边加 `source ~/.bash_profile` 共享 bash 的环境变量
