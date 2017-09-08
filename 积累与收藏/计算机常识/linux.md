@@ -40,6 +40,7 @@
     - 列出现有储存库及其当前状态:`yum repolist all`
     - 添加储存库:`sudo yum-config-manager --add-repo <储存库 url >`
     - 启用储存库:`sudo yum-config-manager --enable <储存库名称>`
+    - 禁用储存库: `sudo yum-config-manager --disable <储存库名称>`
 - 搜索软件包: `sudo yum search <要搜索的包>`
 - 产看已经安装的软件包: `yum list installed `
 - 查看 已安装/可安装 的软件包组: `yum grouplist`
