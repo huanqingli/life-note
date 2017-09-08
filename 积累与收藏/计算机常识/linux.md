@@ -19,6 +19,8 @@
 - 查找内容: `whereis <内容>`
 - 退出 shell: `exit`
 - 查看命令是从哪启动的(环境): `which <命令>`
+- 查看系统版本: `cat /etc/issue`
+- 查看内核版本: `uname -a`或`cat /proc/version`
 
 ### 基础配置
 - 环境变量: 在 .zshrc 文件后边加 `source ~/.bash_profile` 共享 bash 的环境变量

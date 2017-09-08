@@ -12,6 +12,7 @@
 - pm2              (npm安装)
 - zsh
 - oh-my-zsh
+- cerbot           (wget https://dl.eff.org/certbot-auto)
 
 ### 配置修改
 nginx:
