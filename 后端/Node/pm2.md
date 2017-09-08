@@ -7,6 +7,7 @@ pm2 update                         # 更新pm2
 pm2 start app.js                   # 启动应用
 pm2 start app.js --name="api"      # 启动应用命名为 api
 pm2 start app.js -i 4              # 集群方式启动 4 个实例
+pm2 start app.js -i max            # 根据 cpu 启动最多实例
 pm2 start app.js --watch           # 文件发生变化时重新启动
 pm2 reload all                     # 不当机重启集群
 pm2 restart all                    # 重启所有 app
