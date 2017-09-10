@@ -5,14 +5,13 @@
 - node             (通过 nvm 管理)
 - yarn             (npm安装)
 - git
-- nginx            (位于/etc/nginx)
+- nginx            (位于 /etc/nginx)
 - mysql56-server
 - mongodb-org
 - vsftpd
 - pm2              (npm安装)
 - zsh
 - oh-my-zsh
-- cerbot           (wget https://dl.eff.org/certbot-auto)
 
 ### 配置修改
 nginx:
