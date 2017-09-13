@@ -31,6 +31,23 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+//
+// 组织各表
+const 模型名 = rxStats.import(`${__dirname}/定义表的文件`)
+// 定义表
+module.exports = (sequelize, DataTypes) =>
+  sequelize.define(
+    'ofrfstat',
+    {
+      jidfull: DataTypes.STRING,
+      timestart: DataTypes.BIGINT,
+    },
+    {
+      // 自定义表名
+      freezeTableName: true,
+      timestamps: false,
+    },
+  )
 ```
 #### 定义数据模型
 ```javascript
