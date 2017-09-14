@@ -159,6 +159,8 @@ moment().endOf(String);
 ```
 
 #### 显示时间/获取信息
+- 设置时区  
+`moment().zone(-8)`为北京时区，不设置默认为本机时间。  
 - 格式化某 moment 时间对象  
 [点击查阅字母代表的格式](http://momentjs.com/docs/#/displaying/format/)
 ```javascript
