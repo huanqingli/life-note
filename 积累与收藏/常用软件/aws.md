@@ -13,6 +13,23 @@
 - zsh
 - oh-my-zsh
 
+### 链接
+* 配置 ssh config 在 ~/.ssh/ 目录下
+```s
+Host        aws
+
+    HostName        18.220.163.96
+
+    User            ec2-user
+
+    IdentityFile    ~/.ssh/MyAWSKeyPair.pem
+```
+之后通过 ssh aws 链接服务器
+* sshfs 挂载: 
+`sshfs aws: ~/Documents/remote/aws`(将服务器用户目录挂载到本地 ~/Documents/remote/aws)  
+* 取消 sshfs 挂载:  
+`umount ~/Documents/remote/aws`
+
 ### 配置修改
 nginx:
 －user nginx;
