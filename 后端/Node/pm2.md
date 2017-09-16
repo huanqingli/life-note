@@ -25,4 +25,5 @@ pm2 stop all                       # 停止所有应用
 pm2 stop [id/app-name]             # 停止某 app
 pm2 delete all                     # 在 pm2 里清除所有 app
 pm2 delete [id/app-name]           # 在 pm2 里清除某 app
+pm2 kill                           # 疑难杂症先重启
 ```
