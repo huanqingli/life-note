@@ -18,6 +18,7 @@ pm2 monit                          # 打印每个应用 CPU 占用情况
 pm2 show [id/app-name]             # 打印这个应用的所有信息
 # 日志管理
 pm2 logs                           # 打印所有应用日志
+pm2 logs --lines 1000              # 打印 1000 行日志
 pm2 logs [id/app-name]             # 打印某个应用的日志
 pm2 flush                          # 清空日志
 # 停止与关闭
