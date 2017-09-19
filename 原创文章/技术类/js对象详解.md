@@ -1,13 +1,14 @@
-## js对象详解(JavaScript对象深度剖析)
+## js对象详解(JavaScript对象深度剖析，深度理解js对象)
 这算是酝酿很久的一篇文章了。  
 JavaScript作为一个基于对象(没有类的概念)的语言，从入门到精通到放弃一直会被**对象**这个问题围绕。  
 平时发的文章基本都是开发中遇到的问题和对最佳解决方案的探讨，终于忍不住要写一篇基础概念类的文章了。  
 本文探讨以下问题，在座的朋友各取所需，欢迎批评指正:  
-1. [**创建对象**](#创建对象)
+1. [创建对象](#创建对象)
 2. [`__proto__`与prototype](#proto与prototype)
 3. [继承与原型链](#继承与原型链)
 4. [对象的深度克隆](#对象的深度克隆)
-5. [一些Object的方法与需要注意的点](#一些Object的方法与需要注意的点)
+5. [一些Object的方法与需要注意的点](#一些object的方法与需要注意的点)
+6. [ES6新增特性](#es6新增特性)
 
 下面反复提到实例对象和原型对象，通过构造函数 new 出来的本文称作 实例对象，构造函数的原型属性本文称作 原型对象。
 #### 创建对象
@@ -101,10 +102,10 @@ function object(o){
 这两个到底是什么关系？搞清楚 实例对象 构造函数 原型对象 的三角关系，这两个属性的用法就自然清晰了，顺便说下 constructor。  
 构造函数创建的实例对象的 constructor 指向该构造函数(但实际上 constructor 是对应的原型对象上的一个属性！所以实例对象的 constructor 是继承来的，这一点要注意，如果利用原型链继承，constructor 将有可能指向原型对象的构造函数甚至更上层的构造函数，其他重写构造函数 prototype 的行为也会造成 constructor 指向问题，都需要重设 constructor)，构造函数的 prototype 指向对应的原型对象，实例对象的 `__proto__` 指对应的原型对象，`__proto__`是浏览器的实现，并没有出现在标准中，可以用 constructor.prototype 代替。考虑到 Object.create() 创建的对象，更安全的方法是 Object.getPrototpyeOf() 传入需要获取原型对象的实例对象。  
 我自己都感觉说的有点乱，但是他们就是这样的，上一张图，看看能不能帮你更深刻理解这三者关系。  
-![三角关系](https://pic2.zhimg.com/e83bca5f1d1e6bf359d1f75727968c11_r.jpg)
+![三角关系](http://owel7ec6g.bkt.clouddn.com/jsObject.jpg)
 #### 继承与原型链
-原型链是怎么链起来的？  
-实例对象 构造函数 原型对象 视为一个小组，上面说了三者互相之间的关系，构造函数是函数，可实例对象和原型对象可都是普通对象啊，这就出现了这样的情况:  
+当访问一个对象的属性时，如果在对象本身找不到，就会去搜索对象的原型，原型的原型，知道原型链的尽头 null，那原型链是怎么链起来的？  
+把 实例对象 构造函数 原型对象 视为一个小组，上面说了三者互相之间的关系，构造函数是函数，可实例对象和原型对象可都是普通对象啊，这就出现了这样的情况:  
 这个小组的原型对象，等于另一个小组实例对象，而此小组的原型对象又可能是其他小组的实例对象，这样一个个的小组不就连接起来了么。举个例子:
 ```js
 function Super(){
@@ -148,3 +149,108 @@ Sub.prototype.constructor = Sub;
 ```
 到此为止，继承非常完美。  
 其他还有各路继承方式无非是在 简单原型链继承 --> 优化的组合继承 路程之间的一些思路或者封装。
+#### 对象的深度克隆
+JavaScript的基础类型是值传递，而对象是引用传递，这导致一个问题:  
+克隆一个基础类型的变量的时候，克隆出来的的变量是和旧的变量完全独立的，只是值相同而已。
+而克隆对象的时候就要分两种情况了，简单的赋值会让两个变量指向同一块内存，两者代表同一个对象，称为浅克隆。但我们常常需要的是两个属性和方法完全相同但却完全独立的对象，称为深度克隆。我们接下来讨论几种深度克隆的方法。  
+说几句题外的话，业界有一个非常知名的库 immutable ，个人认为很大程度上解决了深度克隆的痛点，我们修改一个对象的时候，很多时候希望得到一个全新的对象(比如Redux每次都要用一个全新的对象修改状态)，由此我们就需要进行深度克隆。而 immutable 相当于产生了一种新的对象类型，每一次修改属性都会返回一个全新的 immutable 对象，免去了我们深度克隆的工作是小事，关键性能特别好。  
+* 历遍属性
+```js
+function clone(obj){
+  var newobj = obj.constructor === Array ? [] : {};  // 用 instanceof 判断也可
+  if(typeof obj !== 'object'  || obj === null ){
+    return obj
+  } else {
+    for(var i in obj){
+      newobj[i] = typeof obj[i] === 'object' ? cloneObj(obj[i]) : obj[i]; 
+      // 只考虑 对象和数组， 函数虽然也是引用类型，但直接赋值并不会产生什么副作用，所以函数类型无需深度克隆。
+    }
+  }
+  return newobj;
+};
+```
+* 原型式克隆
+```js
+function clone(obj){
+  function F() {};
+  F.prototype = obj;
+  var f = new F();
+  for(var key in obj)
+  {
+    if(typeof obj[key] =="object")
+    {
+      f[key] = clone(obj[key])
+    }
+  }
+  return f ;
+}
+```
+这种方式不能算严格意义上的深度克隆，并没有切断新对象与被克隆对象的联系，被克隆对象作为新对象的原型存在，虽然新对象的改变不会影响旧对象，但反之则不然！而且给新对象属性重新赋值的时候只是覆盖了原型中的属性，在历遍新对象的时候也会出现问题。这种方式问题重重，除了实现特殊目的可以酌情使用，通常情况应避免使用。  
+* json序列化
+```js
+var newObj = JSON.parse(JSON.stringify(obj));  
+```
+这是我最喜欢的方式了！简短粗暴直接！但是最大的问题是，毕竟JSON只是一种数据格式所以这种方式只能克隆属性，不能克隆方法，方法在序列化以后就消失了。。。
+#### 一些Object的方法与需要注意的点
+**Object 自身的方法**:    
+* 设置属性，`Object.defineProperty(obj, prop, descriptor)` 根据 descriptor 定义 obj 的 prop 属性(值，是否可写可枚举可删除等)。  
+`Object.getOwnPropertyDescriptor(obj, prop)` 返回 obj 的 prop 属性的描述。
+* 使对象不可拓展，`Object.preventExtensions(obj)`，obj 将不能添加新的属性。  
+判断对像是否可拓展，`Object.isExtensible(obj)`。
+* 密封一个对象，`Object.seal(obj)`，obj 将不可拓展且不能删除已有属性。  
+判断对象是否密封，`Object.isSealed(obj)`。
+* 冻结对象，`Object.freeze(obj)` obj 将被密封且不可修改。  
+判断对象是否冻结，`Object.isFrozen(obj)`。
+* 获取对象自身属性(包括不可枚举的)，`Object.getOwnPropertyNames(obj)`，返回 obj 所有自身属性组成的数组。  
+获取对象自身属性(不包括不可枚举的)，`Object.keys(obj)`，返回 obj 所有自身可枚举属性组成的数组。  
+当使用` for in `循环遍历对象的属性时，**原型链**上的所有**可枚举**属性都将被访问。  
+* 获取某对象的原型对象，`Object.getPrototypeOf(object)`，返回 object 的原型对象。  
+设置某对象的原型对象，`Object.setPrototypeOf(obj, prototype)`，**ES6 新方法**，设置 obj 的原型对象为 prototype ，该语句比较耗时。
+
+  
+**Object.prototype 上的方法**:   
+* 检查对象上某个属性是否存在时(存在于本身而不是原型链中)，`obj.hasOwnProperty()` 是**唯一**可用的方法，他不会向上查找原型链，只在 obj 自身查找，返回布尔值。
+* 检测某对象是否存在于参数对象的原型链中，`obj.isPrototypeOf(obj2)`，obj 是否在 obj2 的原型链中，返回布尔值。
+* 检测某属性是否是对象自身的可枚举属性，`obj.propertyIsEnumerable(prop)`，返回布尔值。
+* 对象类型，`obj.toString()`，返回  "[object type]" type 可以是 Date，Array，Math 等对象类型。
+* obj.valueOf(),修改对象返回值时的行为，使用如下:
+```js
+function myNumberType(n) {
+    this.number = n;
+}
+myNumberType.prototype.valueOf = function() {
+    return this.number;
+};
+myObj = new myNumberType(4);
+myObj + 3; // 7
+```
+#### ES6新增特性
+* 判断两个值是否完全相等，Object.is(value1, value2)，类似于 === 但是可以用来判断 NaN。
+* 属性和方法简写:  
+```js
+// 属性简写
+var foo = 'bar';
+var baz = {foo};
+baz // {foo: "bar"}
+// 等同于
+var baz = {foo: foo};
+// 方法简写
+function f(x, y) {
+  return {x, y};
+}
+// 等同于
+function f(x, y) {
+  return {x: x, y: y};
+}
+f(1, 2) // Object {x: 1, y: 2}
+```
+* 合并对象:  
+`Object.assign(target, [...source]);`将 source 中所有和枚举的属性复制到 target。  
+多个 source 对象有同名属性，后面的覆盖前面的。  
+```js
+var target = { a: 1 };
+var source1 = { b: 2 };
+var source2 = { c: 3 };
+Object.assign(target, source1, source2);
+target // {a:1, b:2, c:3}
+```
