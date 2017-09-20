@@ -11,7 +11,7 @@ JavaScript作为一个基于对象(没有类的概念)的语言，从入门到�
 6. [ES6新增特性](#es6新增特性)
 
 下面反复提到实例对象和原型对象，通过构造函数 new 出来的本文称作 实例对象，构造函数的原型属性本文称作 原型对象。
-#### 创建对象
+### 创建对象
 * 字面量的方式:  
 ```js
 var myHonda = {color: "red", wheels: 4, engine: {cylinders: 4, size: 2.2}}
@@ -101,13 +101,13 @@ function object(o){
 * class 方式:  
 见下面 [ES6](#es6新增特性) class 部分，只是一个语法糖，本质上和构造函数并没有什么区别，但是继承的方式有一些区别。
 
-#### proto与prototype
+### proto与prototype
 这两个到底是什么关系？搞清楚 实例对象 构造函数 原型对象 的三角关系，这两个属性的用法就自然清晰了，顺便说下 constructor。  
 构造函数创建的实例对象的 constructor 指向该构造函数(但实际上 constructor 是对应的原型对象上的一个属性！所以实例对象的 constructor 是继承来的，这一点要注意，如果利用原型链继承，constructor 将有可能指向原型对象的构造函数甚至更上层的构造函数，其他重写构造函数 prototype 的行为也会造成 constructor 指向问题，都需要重设 constructor)，构造函数的 prototype 指向对应的原型对象，实例对象的 `__proto__` 指对应的原型对象，`__proto__`是浏览器的实现，并没有出现在标准中，可以用 constructor.prototype 代替。考虑到 Object.create() 创建的对象，更安全的方法是 Object.getPrototpyeOf() 传入需要获取原型对象的实例对象。  
 我自己都感觉说的有点乱，但是他们就是这样的，上一张图，看看能不能帮你更深刻理解这三者关系。  
 ![三角关系](http://owel7ec6g.bkt.clouddn.com/jsObject.jpg)
 
-#### 继承与原型链
+### 继承与原型链
 当访问一个对象的属性时，如果在对象本身找不到，就会去搜索对象的原型，原型的原型，知道原型链的尽头 null，那原型链是怎么链起来的？  
 把 实例对象 构造函数 原型对象 视为一个小组，上面说了三者互相之间的关系，构造函数是函数，可实例对象和原型对象可都是普通对象啊，这就出现了这样的情况:  
 这个小组的原型对象，等于另一个小组实例对象，而此小组的原型对象又可能是其他小组的实例对象，这样一个个的小组不就连接起来了么。举个例子:
@@ -156,7 +156,7 @@ Sub.prototype.constructor = Sub;
 * 通过 class 继承的方式:  
 通过 class 实现继承的过程与 ES5 完全相反，详细见下面 [ES6](#es6新增特性) class的继承 部分。
 
-#### 对象的深度克隆
+### 对象的深度克隆
 JavaScript的基础类型是值传递，而对象是引用传递，这导致一个问题:  
 克隆一个基础类型的变量的时候，克隆出来的的变量是和旧的变量完全独立的，只是值相同而已。
 而克隆对象的时候就要分两种情况了，简单的赋值会让两个变量指向同一块内存，两者代表同一个对象，甚至算不上克隆克隆。但我们常常需要的是两个属性和方法完全相同但却完全独立的对象，称为深度克隆。我们接下来讨论几种深度克隆的方法。  
@@ -199,7 +199,7 @@ var newObj = JSON.parse(JSON.stringify(obj));
 ```
 这是我最喜欢的方式了！简短粗暴直接！但是最大的问题是，毕竟JSON只是一种数据格式所以这种方式只能克隆属性，不能克隆方法，方法在序列化以后就消失了。。。
 
-#### 一些Object的方法与需要注意的点
+### 一些Object的方法与需要注意的点
 **Object 自身的方法**:    
 * 设置属性，`Object.defineProperty(obj, prop, descriptor)` 根据 descriptor 定义 obj 的 prop 属性(值，是否可写可枚举可删除等)。  
 `Object.getOwnPropertyDescriptor(obj, prop)` 返回 obj 的 prop 属性的描述。
@@ -215,7 +215,6 @@ var newObj = JSON.parse(JSON.stringify(obj));
 只关心对象本身时用`Object.keys(obj)`代替 `for in`，避免历遍原型链上的属性。
 * 获取某对象的原型对象，`Object.getPrototypeOf(object)`，返回 object 的原型对象。  
 设置某对象的原型对象，`Object.setPrototypeOf(obj, prototype)`，**ES6 新方法**，设置 obj 的原型对象为 prototype ，该语句比较耗时。
-
 **Object.prototype 上的方法**:   
 * 检查对象上某个属性是否存在时(存在于本身而不是原型链中)，`obj.hasOwnProperty()` 是**唯一**可用的方法，他不会向上查找原型链，只在 obj 自身查找，返回布尔值。
 * 检测某对象是否存在于参数对象的原型链中，`obj.isPrototypeOf(obj2)`，obj 是否在 obj2 的原型链中，返回布尔值。
@@ -233,7 +232,7 @@ myObj = new myNumberType(4);
 myObj + 3; // 7
 ```
 
-#### ES6新增特性
+### ES6新增特性
 * 判断两个值是否完全相等，Object.is(value1, value2)，类似于 === 但是可以用来判断 NaN。
 * 属性和方法简写:  
 ```js
