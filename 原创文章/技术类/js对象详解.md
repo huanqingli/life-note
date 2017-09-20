@@ -98,6 +98,8 @@ function object(o){
 使用原型模式时，当给实例对象设置自己专属的属性的时候，该实例对象会忽略原型链中的该属性。但当原型链中的属性是引用类型值的时候，操作不当有可能会直接修改原型对象的属性！这会影响到所有使用该原型对象的实例对象！  
 大部分情况下，实例对象的多数方法是共有的，多数属性是私有的，所以属性在构造函数中设置，方法在原型中设置是合适的，构造函数与原型结合使用是通常的做法。  
 还有一些方法，无非是工厂模式与构造函数与原型模式的互相结合，在生成过程和 this 指向上做一些小变化。 
+* class 方式:  
+见下面 [ES6](#es6新增特性) class 部分，只是一个语法糖，本质上和构造函数并没有什么区别，但是继承的方式有一些区别。
 #### proto与prototype
 这两个到底是什么关系？搞清楚 实例对象 构造函数 原型对象 的三角关系，这两个属性的用法就自然清晰了，顺便说下 constructor。  
 构造函数创建的实例对象的 constructor 指向该构造函数(但实际上 constructor 是对应的原型对象上的一个属性！所以实例对象的 constructor 是继承来的，这一点要注意，如果利用原型链继承，constructor 将有可能指向原型对象的构造函数甚至更上层的构造函数，其他重写构造函数 prototype 的行为也会造成 constructor 指向问题，都需要重设 constructor)，构造函数的 prototype 指向对应的原型对象，实例对象的 `__proto__` 指对应的原型对象，`__proto__`是浏览器的实现，并没有出现在标准中，可以用 constructor.prototype 代替。考虑到 Object.create() 创建的对象，更安全的方法是 Object.getPrototpyeOf() 传入需要获取原型对象的实例对象。  
@@ -148,11 +150,13 @@ Sub.prototype = Object.create(Super.prototype);
 Sub.prototype.constructor = Sub;
 ```
 到此为止，继承非常完美。  
-其他还有各路继承方式无非是在 简单原型链继承 --> 优化的组合继承 路程之间的一些思路或者封装。
+其他还有各路继承方式无非是在 简单原型链继承 --> 优化的组合继承 路程之间的一些思路或者封装。  
+* 通过 class 继承的方式:  
+通过 class 实现继承的过程与 ES5 完全相反，详细见下面 [ES6](#es6新增特性) class的继承 部分。
 #### 对象的深度克隆
 JavaScript的基础类型是值传递，而对象是引用传递，这导致一个问题:  
 克隆一个基础类型的变量的时候，克隆出来的的变量是和旧的变量完全独立的，只是值相同而已。
-而克隆对象的时候就要分两种情况了，简单的赋值会让两个变量指向同一块内存，两者代表同一个对象，称为浅克隆。但我们常常需要的是两个属性和方法完全相同但却完全独立的对象，称为深度克隆。我们接下来讨论几种深度克隆的方法。  
+而克隆对象的时候就要分两种情况了，简单的赋值会让两个变量指向同一块内存，两者代表同一个对象，甚至算不上克隆克隆。但我们常常需要的是两个属性和方法完全相同但却完全独立的对象，称为深度克隆。我们接下来讨论几种深度克隆的方法。  
 说几句题外的话，业界有一个非常知名的库 immutable ，个人认为很大程度上解决了深度克隆的痛点，我们修改一个对象的时候，很多时候希望得到一个全新的对象(比如Redux每次都要用一个全新的对象修改状态)，由此我们就需要进行深度克隆。而 immutable 相当于产生了一种新的对象类型，每一次修改属性都会返回一个全新的 immutable 对象，免去了我们深度克隆的工作是小事，关键性能特别好。  
 * 历遍属性
 ```js
@@ -203,7 +207,8 @@ var newObj = JSON.parse(JSON.stringify(obj));
 判断对象是否冻结，`Object.isFrozen(obj)`。
 * 获取对象自身属性(包括不可枚举的)，`Object.getOwnPropertyNames(obj)`，返回 obj 所有自身属性组成的数组。  
 获取对象自身属性(不包括不可枚举的)，`Object.keys(obj)`，返回 obj 所有自身可枚举属性组成的数组。  
-当使用` for in `循环遍历对象的属性时，**原型链**上的所有**可枚举**属性都将被访问。  
+当使用`for in`循环遍历对象的属性时，**原型链**上的所有**可枚举**属性都将被访问。  
+只关心对象本身时用`Object.keys(obj)`代替 `for in`，避免历遍原型链上的属性。
 * 获取某对象的原型对象，`Object.getPrototypeOf(object)`，返回 object 的原型对象。  
 设置某对象的原型对象，`Object.setPrototypeOf(obj, prototype)`，**ES6 新方法**，设置 obj 的原型对象为 prototype ，该语句比较耗时。
 
@@ -254,3 +259,136 @@ var source2 = { c: 3 };
 Object.assign(target, source1, source2);
 target // {a:1, b:2, c:3}
 ```
+注意一点，该命令执行的是浅克隆，如果 source 中有属性是对象，target 中会复制该对象的引用。  
+常用于给对象添加属性和方法(如给构造函数的原型添加方法)，克隆、合并对象等。
+* 获取对象自身的值或键值对(做为`Object.keys(obj)`的补充不包括不可枚举的):  
+`Object.keys(obj)`返回 obj 自身所有可枚举属性的值组成的数组。  
+`Object.entries(obj)`返回 obj 自身所有可枚举键值对数组组成的数组，例如:
+```js
+var obj = { foo: 'bar', baz: 42 };
+Object.entries(obj)
+// [ ["foo", "bar"], ["baz", 42] ]
+// 可用于将对象转为 Map 结构
+var obj = { foo: 'bar', baz: 42 };
+var map = new Map(Object.entries(obj));
+map // Map { foo: "bar", baz: 42 }
+```
+* 拓展运算符:
+取出对象所有可历遍属性，举例:  
+```js
+let z = { a: 3, b: 4 };
+let n = { ...z };
+n // { a: 3, b: 4 }
+// 可代替 Object.assign()
+let ab = { ...a, ...b };
+// 等同于
+let ab = Object.assign({}, a, b);
+```
+可用于解构赋值中最后一个参数:
+```js
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+x // 1
+y // 2
+z // { a: 3, b: 4 }
+// 可以这样理解，把 z 拆开以后就等于后面对象未被分配出去的键值对。
+```
+* Null 传导运算符:
+```js
+const firstName = message?.body?.user?.firstName || 'default';
+// 代替
+const firstName = (message
+  && message.body
+  && message.body.user
+  && message.body.user.firstName) || 'default';
+```
+* class:  
+ES6 引入了 class 关键字，但并没有改变对象基于原型继承的原理，只是一个语法糖，让他长得像传统面向对象语言而已。  
+以下两个写法完全等价:  
+```js
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+Point.prototype.toString = function () {
+  return '(' + this.x + ', ' + this.y + ')';
+};
+//定义类
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  toString() {
+    return '(' + this.x + ', ' + this.y + ')';
+  }
+}
+// 类中定义的方法就是在原型上
+```
+有两点区别， class 中定义的方法是不可枚举的，class 必须通过 new 调用不能直接运行。  
+class 不存在变量提升，使用要在定义之后。  
+
+class 中的方法前加 static 关键字定义静态方法，只能通过 class 直接调用不能被**实例**继承。  
+如果静态方法包含 this 关键字，这个 this 指的是 class，而不是实例。注意下面代码:  
+```js
+class Foo {
+  static bar () {
+    this.baz();
+  }
+  static baz () {
+    console.log('hello');
+  }
+  baz () {
+    console.log('world');
+  }
+}
+Foo.bar() // hello
+```
+父类的静态方法，可以被子类继承，目前 class 内部无法定义静态属性。  
+
+设置静态属性与实例属性新提案:  
+class 的实例属性可以用等式，写入类的定义之中。  
+静态属性直接前面加 static 即可。  
+```js
+class MyClass {
+  myProp = 42;
+  static myStaticProp = 42;
+}
+```
+* class 的继承:  
+class 通过 extends 实现继承,注意 super 关键字
+```js
+class ColorPoint extends Point {
+  constructor(x, y, color) {
+    super(x, y); // 调用父类的constructor(x, y)
+    this.color = color;
+  }
+  toString() {
+    return this.color + ' ' + super.toString(); // 调用父类的toString()
+  }
+}
+```
+extends 可以继承其他类或任何有 prototype 属性的函数。  
+super 会从父类获取各路信息绑定到子类的 this。  
+子类自己没有 this 对象，要先继承父类的实例对象然后再进行加工，所以要在 constructor 里调用 super 继承 this 对象后才能使用 this。  
+**ES5 的继承，实质是先创造子类的实例对象 this，然后再将父类的方法添加到 this 上面（Parent.apply(this)）。ES6 的继承机制完全不同，实质是先创造父类的实例对象 this（所以必须先调用 super 方法创建和继承这个 this，并绑定到子类的 this），然后再用子类的构造函数修改this。**  
+这条理由也是造成了 ES6 之前无法继承原生的构造函数(Array Function Date 等)的原型对象，而使用 class 可以。因为 ES5 中的方法是先实例化子类，再把父类的属性添加上去，但是父类有很多不能直接访问的属性或方法，这就糟了，而通过 class 继承反其道而行之先实例化父类，这就自然把所有属性和方法都继承了。  
+super 作为对象时，在普通方法中，指向父类的**原型**对象；在静态方法中，指向父类。  
+通过 super 调用父类的方法时，super 会绑定子类的 this。  
+constructor 方法会被默认添加:
+```js
+class ColorPoint extends Point {
+}
+// 等同于
+class ColorPoint extends Point {
+  constructor(...args) {
+    super(...args);
+  }
+}
+```
+`Object.getPrototypeOf(object)`，获取某对象的原型对象，也可以获取某类的原型类。  
+* class 的 `__proto__`与prototype  
+子类的`__proto__`属性，表示构造函数的继承，总是指向父类。  
+子类prototype属性的`__proto__`属性，表示方法的继承，总是指向父类的 prototype 属性。
+相当于子类本身继承父类，子类的原型对象继承自父类的原型对象。  
+* new.target:  
+用在构造函数或者 class 内部，指向调用时 new 的构造函数或者 class。  
