@@ -215,6 +215,7 @@ var newObj = JSON.parse(JSON.stringify(obj));
 只关心对象本身时用`Object.keys(obj)`代替 `for in`，避免历遍原型链上的属性。
 * 获取某对象的原型对象，`Object.getPrototypeOf(object)`，返回 object 的原型对象。  
 设置某对象的原型对象，`Object.setPrototypeOf(obj, prototype)`，**ES6 新方法**，设置 obj 的原型对象为 prototype ，该语句比较耗时。  
+
 **Object.prototype 上的方法**:   
 * 检查对象上某个属性是否存在时(存在于本身而不是原型链中)，`obj.hasOwnProperty()` 是**唯一**可用的方法，他不会向上查找原型链，只在 obj 自身查找，返回布尔值。
 * 检测某对象是否存在于参数对象的原型链中，`obj.isPrototypeOf(obj2)`，obj 是否在 obj2 的原型链中，返回布尔值。
