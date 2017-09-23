@@ -47,6 +47,7 @@
 	- 本地储存
 - #### CSS
 	- CSS备忘
+	- [CSS选择器](前端/CSS/选择器.md)
 	- [CSS Modules](前端/CSS/css-modules.md)
 	- CSS动画
 	- [CSS变量（自定义属性）](前端/CSS/CSS变量(自定义属性).md)
