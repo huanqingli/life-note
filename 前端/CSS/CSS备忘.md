@@ -8,3 +8,20 @@
 ### 继承
 会被继承的属性: 文本相关属性，列表相关属性  
 继承的属性优先级是最低的  
+### 文本样式
+* 颜色: `color`
+* 字体: `font-family`
+* 粗细: `font-weight` (bold/lighter/bolder/100–900)
+* 字号: `font-size`
+* 斜体: `font-style:italic;`
+* 阴影: `text-shadow`
+* 大小写: `text-transform` (uppercase/lowercase/capitalize)
+* 下划线: `text-decoration:underline;`
+* 删除线: `text-decoration:line-through;`
+* 对齐: `text-align` (left/right/center/justify)
+* 锁进: `text-indent`
+* 行高: `line-height`
+* 字母间距: `letter-spacing`
+* 单词间距: `word-spacing`
+* 阻止换行: `white-space:nowrap;`
+* 让标签里的空格生效: `white-space:pre;`
