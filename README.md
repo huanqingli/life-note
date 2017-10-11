@@ -52,7 +52,7 @@
 	- [CSS Modules](前端/CSS/css-modules.md)
 	- [CSS变量（自定义属性）](前端/CSS/CSS变量(自定义属性).md)
 	- CSS动画
-	- flex布局
+	- [CSS布局](前端/CSS/布局.md)
 	- 自适应布局相关
 - #### javaScript
 	- js备忘
