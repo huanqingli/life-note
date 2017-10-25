@@ -144,6 +144,7 @@
 	- [async/await与promise(js异步操作).md](原创文章/技术类/async\await与promise(js异步操作).md)
 	- [完美结合redux与react-router](原创文章/技术类/完美结合redux与react-router.md)
 	- [js对象详解](原创文章/技术类/js对象详解.md)
+	- [我两年的web开发生涯](原创文章/技术类/我两年的web开发生涯.md)
 - #### 生活类
 	- [你是自由的么](原创文章/生活类/你是自由的么.md)
 - #### 读书笔记
