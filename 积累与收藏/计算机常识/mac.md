@@ -3,3 +3,8 @@
 - `ctrl-left [right]`: 左右切换桌面。
 - `ctrl-up`: 查看当前桌面窗口。
 - `ctrl-down`: 查看当前应用窗口。
+
+#### 终端操作
+- `Command+Shift+.`: 显示隐藏文件夹。
+- `chsh -s /bin/zsh`: 修改默认shell为zsh,改回bash同理。
+·
