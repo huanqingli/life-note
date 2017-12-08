@@ -7,4 +7,3 @@
 #### 终端操作
 - `Command+Shift+.`: 显示隐藏文件夹。
 - `chsh -s /bin/zsh`: 修改默认shell为zsh,改回bash同理。
-·
