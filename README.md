@@ -55,7 +55,7 @@
 	- [CSS布局](前端/CSS/布局.md)
 	- 自适应布局相关
 - #### javaScript
-	- js备忘
+	- [js备忘](前端/javascript/js备忘录.md)
 	- AJAX
 	- [fetch](前端/javascript/fetch.md)
 	- 跨域
@@ -68,6 +68,7 @@
 	- 闭包
 	- this相关
 	- 时间日期相关
+	- [基础算法](前端/javascript/基础算法.md)
 - #### React家族
 	- [React备忘](前端/React家族/react备忘.md)
 	- React全栈成员

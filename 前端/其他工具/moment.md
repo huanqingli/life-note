@@ -1,4 +1,5 @@
 ## [moment](http://momentjs.com/docs/)
+请考虑 [luxon](https://github.com/moment/luxon)
 #### 获得时间对象 及其反向操作
 - 获得当前时间的 moment 时间对象：  
 ```javascript
