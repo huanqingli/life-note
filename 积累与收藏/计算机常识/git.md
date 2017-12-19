@@ -53,7 +53,7 @@
 `--stat`: 每次提交修改的文件和行数。   
 `--graph`: 形象的显示分支。  
 `--oneline`: 每次提交放在一行显示。  
-`--author `: 指定作者的提交。  
+`--author`: 指定作者的提交。  
 `--grep`: 提交说明包含某些关键字的提交。  
 `-S`: 添加或移除了某个关键字的提交。  
 `--decorate`: 查看指针所在。  
@@ -130,6 +130,7 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 - `git remote rename [nameA] [nameB]`: 把远程仓库A命名为B。
 - `git remote rm`: 后接远程仓库名，仅断开连接。
 - `git remote show`: 后接远程仓库名，查看详情。
+- `git remote set-url origin [url]`: 切换远程仓库地址。可用于 https 改 ssh 或相反。
 
 #### 查找BUG
 流程如下:

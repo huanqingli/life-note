@@ -79,7 +79,7 @@
 - #### ES6标准
 	- ES6基础
 	- Iterator 遍历器
-	- Set结构
+	- [Set结构](前端/ES6新特性/set结构.md)
 	- Map结构
 	- Math方法
 	- 模版字符串
