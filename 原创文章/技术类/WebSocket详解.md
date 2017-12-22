@@ -31,3 +31,7 @@ socket.addEventListener('message', function (event) {
 ```
 详细 API 见 [MDN文档](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket)
 详细使用见 [地址](http://www.ruanyifeng.com/blog/2017/05/websocket.html)
+#### Socket.IO
+了解 WebSocket 的时候很容易接触到 Socket.IO，两者关系：Socket.IO 是 WebSocket 在 node.js 和客户端的一种实现，这么说也不准确，因为他会在无法使用 Websocket 的时候采用其他代替方案实现类似持久链接。  
+这样描述应该跟准确：Socket.IO 是建立 node.js服务端与客户端之间持久链接的一个框架，会优先采用 WebSocket 协议。  
+其接口简单容易理解，参考[官方文档](https://socket.io/docs/)
