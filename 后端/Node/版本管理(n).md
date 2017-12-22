@@ -15,8 +15,11 @@
 - 删除版本：`n rm 0.10.26 v0.11.12`
 - 安装指定版本：`n 0.11.12` (如果已经存在，切换到该版本)
 #### nvm
+- 作为oh-my-zsh插件安装：[链接](https://github.com/lukechilds/zsh-nvm#as-an-oh-my-zsh-custom-plugin)
 - 安装最新版 node: `nvm install node`
+- 查看当前版本: `nvm current`
 - 查看已经安装的版本: `nvm ls`
 - 查看可安装的版本: `nvm ls-remote`
+- 安装某版本: `nvm install <版本号>`
 - 卸载某版本: `nvm uninstall <版本号>`
 - 使用某版本: `nvm use <版本号>`

@@ -2,7 +2,7 @@
 * 页面重载（页面刷新）:  
 	location.reload();  
 	history.go(0);  
-    location=location;  
+  location=location;  
 * 两个对象 === 比较，只有指向同一个地址才视为相等。
 * 错误捕获：
   ```js
