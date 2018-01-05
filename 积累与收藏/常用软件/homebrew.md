@@ -11,3 +11,4 @@
 - 查看包信息：`brew info < package >`
 - 查看配置信息： `brew config`
 - 检查 brew 的潜在风险：`brew doctor`
+- 安装二进制包：`brew cask install < package >`

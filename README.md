@@ -124,7 +124,7 @@
 	- [连接 SQL 数据库](后端/Node/sequelize.md)
 	- 登录认证
 	- [常用包](后端/Node/常用包.md)
-	- [版本管理(n)](后端/Node/版本管理(n).md)
+	- [版本管理](后端/Node/版本管理.md)
 	- [pm2](后端/Node/pm2.md)
 	- 包管理工具(npm,yarn)
 - #### 数据库
