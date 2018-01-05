@@ -29,6 +29,6 @@
 - console.time(label)  
   console.timeEnd(label) 
   label 可以为任意字符串，计算两者之间代码运行时间。  
-- console.group(labeel)  
+- console.group(label)  
   console.groupEnd()  
   输出一组信息 label 为组名  
