@@ -12,3 +12,7 @@
 - 查看配置信息： `brew config`
 - 检查 brew 的潜在风险：`brew doctor`
 - 安装二进制包：`brew cask install < package >`
+- homebrew 自身的位置：`brew --repo`(/usr/local/Homebrew)
+
+- 进入 homebrew 仓库：`cd "$(brew --repo)"`
+- 替换 homebrew 的源：`git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git`(为了 update 快)

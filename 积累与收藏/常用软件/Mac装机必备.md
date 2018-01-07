@@ -9,6 +9,10 @@
 - nvm: node 版本管理器(作为oh-my-zsh插件)
 - node: 通过 nvm 安装
 - pyenv: python 版本管理(brew install pyenv)
+- mysql: 关系型数据库(brew install mysql)
+- sequel-pro: mysql 图形工具(brew cask install sequel-pro)
+- tldr: 人性化帮助(brew install tldr)(tldr <命令> 查看该命令的帮助)
 - vscode: 优质编辑器
 - appcleaner：删应用
 - omniDiskSweeper：磁盘清理
+- keeweb: 密码管理
