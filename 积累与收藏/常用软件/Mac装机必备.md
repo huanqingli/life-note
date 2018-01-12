@@ -19,3 +19,4 @@
 - omniDiskSweeper：磁盘清理
 - keeweb: 密码管理  
 - buku: 命令行书签管理
+- boom: 命令行速记本
