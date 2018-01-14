@@ -7,6 +7,7 @@
 - zsh-syntax-highlighting: 终端命令高亮(作为oh-my-zsh插件)
 - thefuck：自动纠错(brew install thefuck)(fuck 显示正确指令)
 - ripgrep: 搜索文件内部内容(brew install ripgrep)(rg 搜索内容)
+- fd: 按名称搜索文件(brew install fd)
 - translate-shell: 终端里的多语言字典(brew install translate-shell)
 - tldr: 人性化帮助(brew install tldr)(tldr <命令> 查看该命令的帮助)
 - glances: 查看系统状态(brew install glances)
@@ -14,6 +15,7 @@
 - node: 通过 nvm 安装
 - micro: 终端编辑器(brew install micro)
 - pyenv: python 版本管理(brew install pyenv 之后 ~/.zshrc 文件结尾添加 `eval "$(pyenv init -)"`)
+- python: 通过 pyenv 安装
 - mysql: 关系型数据库(brew install mysql)
 - sequel-pro: mysql 图形工具(brew cask install sequel-pro)
 - sqlitebrowser: sqlite 图形工具
