@@ -16,6 +16,7 @@
 - micro: 终端编辑器(brew install micro)
 - pyenv: python 版本管理(brew install pyenv 之后 ~/.zshrc 文件结尾添加 `eval "$(pyenv init -)"`)
 - python: 通过 pyenv 安装
+- pipenv: python 包管理器类似于npm(pip install pipenv)
 - mysql: 关系型数据库(brew install mysql)
 - sequel-pro: mysql 图形工具(brew cask install sequel-pro)
 - sqlitebrowser: sqlite 图形工具
