@@ -1,10 +1,10 @@
 ## js备忘
-* 页面重载（页面刷新）:  
+- 页面重载（页面刷新）:  
 	location.reload();  
 	history.go(0);  
   location=location;  
-* 两个对象 === 比较，只有指向同一个地址才视为相等。
-* 错误捕获：
+- 两个对象 === 比较，只有指向同一个地址才视为相等。
+- 错误捕获：
   ```js
 	try{
 	  if(!(name.length>=1&&name.length<=10)){
