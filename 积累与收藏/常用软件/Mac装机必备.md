@@ -1,8 +1,11 @@
 ## Mac装机软件
 按顺序安装
 - xcode：苹果应用开发工具，很多其他开发工具的依赖(xcode-select --install 安装其命令行工具)
+- shadowsocks：翻墙工具()
+- chrome：浏览器()
+- vscode: 优质编辑器
 - Homebrew: 包管理器
-- iTerm2：终端
+- iTerm2：终端(brew cask install iterm2)
 - oh-my-zsh：让终端变强 查看[这里](./oh-my-zsh.md)安装各路插件
 - zsh-syntax-highlighting: 终端命令高亮(作为oh-my-zsh插件)
 - thefuck：自动纠错(brew install thefuck)(fuck 显示正确指令)
@@ -20,7 +23,6 @@
 - mysql: 关系型数据库(brew install mysql)
 - sequel-pro: mysql 图形工具(brew cask install sequel-pro)
 - sqlitebrowser: sqlite 图形工具
-- vscode: 优质编辑器
 - appcleaner：删应用
 - omniDiskSweeper：磁盘清理
 - keeweb: 密码管理  
