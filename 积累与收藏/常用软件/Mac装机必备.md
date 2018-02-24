@@ -3,7 +3,7 @@
 按顺序安装
 - xcode：苹果应用开发工具，很多其他开发工具的依赖(xcode-select --install 安装其命令行工具)
 - shadowsocks：翻墙工具(https://github.com/shadowsocks/shadowsocks/wiki)
-- 终端使用 shadowsocks 代理 [链接](../歌单.md)
+- 终端使用 shadowsocks 代理 [链接](../计算机常识/mac.md)
 - chrome：浏览器(https://www.google.com/chrome/)
 - vscode: 优质编辑器
 - iTerm2：终端
@@ -21,17 +21,17 @@
 - micro: 终端编辑器(brew install micro)
 - pyenv: python 版本管理(brew install pyenv 之后 ~/.zshrc 文件结尾添加 `eval "$(pyenv init -)"`)
 - python: 通过 pyenv 安装
-- pipenv: python 包管理器类似于npm(pip install pipenv)
+- pipenv: python 包管理器类似于npm(sudo pip install pipenv)
 - mysql: 关系型数据库(brew install mysql)
 - sequel-pro: mysql 图形工具(brew cask install sequel-pro)
 - sqlitebrowser: sqlite 图形工具
-- postman: http请求工具
+- postman: http请求工具(brew cask install postman)
 
 ### 生活常用
 - appcleaner：删应用
 - omniDiskSweeper：磁盘清理
-- keeweb: 密码管理(建立软连接)  
-- buku: 命令行书签管理(建立软连接)
+- keeweb: 密码管理  
+- buku: 命令行书签管理(建立软连接)(brew install buku)
 - oneNote：笔记
 - 有道笔记
 - 有道词典
