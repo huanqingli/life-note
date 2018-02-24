@@ -2,11 +2,12 @@
 ### 开发相关
 按顺序安装
 - xcode：苹果应用开发工具，很多其他开发工具的依赖(xcode-select --install 安装其命令行工具)
-- shadowsocks：翻墙工具()
-- chrome：浏览器()
+- shadowsocks：翻墙工具(https://github.com/shadowsocks/shadowsocks/wiki)
+- 终端使用 shadowsocks 代理 [链接](../歌单.md)
+- chrome：浏览器(https://www.google.com/chrome/)
 - vscode: 优质编辑器
 - iTerm2：终端
-- Homebrew: 包管理器
+- Homebrew: 包管理器(要使用 shadowsocks 代理)
 - oh-my-zsh：让终端变强 查看[这里](./oh-my-zsh.md)安装各路插件
 - zsh-syntax-highlighting: 终端命令高亮(作为oh-my-zsh插件)
 - thefuck：自动纠错(brew install thefuck)(fuck 显示正确指令)
@@ -36,6 +37,7 @@
 - 有道词典
 - 百度网盘
 - 微信
+- QQ
 
 ### 选装
 - tree：显示目录树(brew install tree)(tree 显示所有 tree -L 1 显示一层)

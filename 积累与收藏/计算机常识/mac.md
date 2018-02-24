@@ -11,4 +11,9 @@
 - `Command+Shift+.`: 显示隐藏文件夹。
 - `chsh -s /bin/zsh`: 修改默认shell为zsh,改回bash同理。
 - `ifconfig`: 查看各种地址。
-
+- 开启，关闭 shadowsocks 代理 .zshrc 里添加
+```shell
+alias proxy='export all_proxy=socks5://127.0.0.1:1080'
+alias unproxy='unset all_proxy'
+```
+后通过 proxy unproxy 开启关闭代理
