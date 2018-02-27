@@ -43,3 +43,4 @@
 - tree：显示目录树(brew install tree)(tree 显示所有 tree -L 1 显示一层)
 - fanyi：终端双语字典(npm install fanyi -g)
 - boom: 命令行速记本(建立软连接)
+- mycli: mysql 命令行工具(brew install mycli)
