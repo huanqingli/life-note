@@ -8,7 +8,6 @@
 - 整合测试：确保单独运行正常的零部件整合到一起之后依然能正常运行。  
 
 [详细资料1](https://codeutopia.net/blog/2015/04/11/what-are-unit-testing-integration-testing-and-functional-testing/)  
-
 [详细资料2](https://www.sitepoint.com/javascript-testing-unit-functional-integration/)  
 
 开发人员主要关注单元测试，作为开发中的反馈。本文重点讨论的单元测试框架。  
