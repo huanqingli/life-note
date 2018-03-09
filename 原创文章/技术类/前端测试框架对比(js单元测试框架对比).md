@@ -5,14 +5,18 @@
 其中：
 - 单元测试：关注应用中每个零部件的正常运转，防止后续修改影响之前的组件。
 - 功能测试：确保其整体表现符合预期，关注能否让用户正常使用。
-- 整合测试：确保单独运行正常的零部件整合到一起之后依然能正常运行。   
-[详细资料1](https://codeutopia.net/blog/2015/04/11/what-are-unit-testing-integration-testing-and-functional-testing/)
-[详细资料2](https://www.sitepoint.com/javascript-testing-unit-functional-integration/)
-开发人员主要关注单元测试，作为开发中的反馈。本文重点讨论的单元测试框架。
+- 整合测试：确保单独运行正常的零部件整合到一起之后依然能正常运行。  
+
+[详细资料1](https://codeutopia.net/blog/2015/04/11/what-are-unit-testing-integration-testing-and-functional-testing/)  
+
+[详细资料2](https://www.sitepoint.com/javascript-testing-unit-functional-integration/)  
+
+开发人员主要关注单元测试，作为开发中的反馈。本文重点讨论的单元测试框架。  
 单元测试的好处：
 - 如果能通过单元测试，那么通过后续测试且软件整体正常运行的概率大大提高。
 - 单元测试发现的问题定位到细节，容易修改，节省时间。
 - 追踪问题变得更加方便。
+
 ### 选择单元测试框架
 单元测试应该：简单，快速执行，清晰的错误报告。
 测试框架基本上都做了同一件事儿：
@@ -29,8 +33,9 @@
 注：
 - TDD：测试驱动型的开发方式，先写测试代码，之后编写能通过测试的业务代码，可以不断的在能通过测试的情况下重构。
 - BDD：与 TDD 很相似，测试代码的风格是预期结果，更关注功能，看起来像需求文档。
-其实都是先写测试代码，感觉BDD 风格更人性。
+其实都是先写测试代码，感觉BDD 风格更人性。  
 [参考链接](https://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/)
+
 ### 测试工具的类型
 组合使用工具很常见，即使已选框架也能实现类似的功能
 - 提供测试框架(Mocha, Jasmine, Jest, Cucumber)
@@ -39,11 +44,13 @@
 - 快照测试(Jest, Ava)
 - 提供仿真(Sinon, Jasmine, enzyme, Jest, testdouble)
 - 生成测试覆盖率报告(Istanbul, Jest, Blanket)
-- 提供类浏览器环境(Protractor, Nightwatch, Phantom, Casper)
+- 提供类浏览器环境(Protractor, Nightwatch, Phantom, Casper)   
 解释上面提到的点：
 - 测试框架，即组织你的测试，当前流行 BDD 的测试结构。
 - 快照测试(snapshot testing)，测试 UI 或数据结构是否和之前完全一致，通常 UI 测试不在单元测试中
-- 仿真(mocks, spies, and stubs)：模拟方法，模块，服务
+- 仿真(mocks, spies, and stubs)：获取方法的调用信息，模拟方法，模块，甚至服务器  
+[相关资料](https://stackoverflow.com/questions/24413184/can-someone-explain-the-difference-between-mock-stub-and-spy-in-spock-framewor)
+
 ### 各框架特点
 #### Jest
 - facebook 坐庄
@@ -54,7 +61,7 @@
 - 在隔离环境下测试
 - 互动模式选择要测试的模块
 - 优雅的测试覆盖率报告，基于Istanbul
-- 智能并行测试([参考](https://facebook.github.io/jest/blog/2016/03/11/javascript-unit-testing-performance.html#optimal-scheduling-of-a-test-run))
+- 智能并行测试([参考](https://facebook.github.io/jest/blog/2016/03/11/javascript-unit-testing-performance.html#optimal-scheduling-of-a-test-run))  
 - 较新，社区不十分成熟
 - 全局环境，比如 describe 不需要引入直接用
 - 较多用于 React 项目(但广泛支持各种项目)
@@ -135,9 +142,57 @@ describe("Math", function() {
   });
 });
 ```
+#### Jest
+```js
+jest.unmock('../Math'); // unmock to use the actual implementation of Math
 
+var math = require('../Math');
 
+describe("Math", function() {
+  var firstOperand;
+  var secondOperand;
 
-[参考资料1](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2018-f68950900bc3)
-[参考资料2](https://spin.atomicobject.com/2017/05/02/react-testing-jest-vs-mocha/)
+  beforeEach(function() {
+    firstOperand = 2;
+    secondOperand = 3;
+  });
+
+  it("should add two numbers", function() {
+    var result = math.add(firstOperand, secondOperand);
+    expect(result).toEqual(firstOperand + secondOperand);
+  });
+});
+```
+#### Mocha
+```js
+var assert = require('assert'); // nodejs 内建断言
+var math = require('../Math');
+describe("Math", function() {
+  var firstOperand;
+  var secondOperand;
+  beforeEach(function() {
+    firstOperand = 2;
+    secondOperand = 3;
+  });
+  it("should add two numbers", function() {
+    var result = math.add(firstOperand, secondOperand);
+    assert.equal(result, firstOperand + secondOperand);
+  });
+});
+```
+#### Tape
+```js
+var test = require('tape');
+var math = require('../Math');
+var firstOperand = 2;
+var secondOperand = 3;
+test("Math add function", function(t) {
+  var result = math.add(firstOperand, secondOperand);
+  t.equal(result, firstOperand + secondOperand);
+  t.end();
+});
+```
+
+[参考资料1](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2018-f68950900bc3)  
+[参考资料2](https://spin.atomicobject.com/2017/05/02/react-testing-jest-vs-mocha/)  
 [参考资料3](https://medium.com/cardinal-solutions/lets-compare-javascript-testing-frameworks-bb500f0b1006)
