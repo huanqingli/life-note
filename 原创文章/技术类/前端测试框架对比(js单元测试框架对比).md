@@ -194,4 +194,5 @@ test("Math add function", function(t) {
 
 [参考资料1](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2018-f68950900bc3)  
 [参考资料2](https://spin.atomicobject.com/2017/05/02/react-testing-jest-vs-mocha/)  
-[参考资料3](https://medium.com/cardinal-solutions/lets-compare-javascript-testing-frameworks-bb500f0b1006)
+[参考资料3](https://medium.com/cardinal-solutions/lets-compare-javascript-testing-frameworks-bb500f0b1006)  
+[cheatsheet](https://devhints.io/jest)
