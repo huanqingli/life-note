@@ -1,14 +1,17 @@
 ## async/await与promise(js异步操作)
 此文只是粗略介绍使用方法，欲了解核心概念请参考官方文档或其他资料。
 举例写文章详情页面的时候的一个场景：首先更改文章详情中的 PV，然后读取文章详情，然后根据文章详情中文章 Id 查阅该文章评论和该文章作者信息。获取全部数据之后渲染文章详情页。数据库操作都是异步的，最直接想到的办法就是一层一层的回调函数，问题出来了：十分不雅观，要是层再多一点还会有更多麻烦。怎么解决？业内为了处理异步操作问题也是拼了，什么async，q，bluebird，co，处理方式不同，各有千秋，感兴趣可以了解一下，但是惊喜的发现nodejs 7.6已经默认支持ES7中的 async/await 了，结合ES6中的 promise对象，用起来不亦乐乎的。
-Async/await的主要益处是可以避免回调地狱（callback hell）问题。
+Async/await的主要益处是可以避免回调地狱（callback hell），且以最接近同步代码的方式编写异步代码。
 
 #### 基本概念：
+- promise 对象有三种状态：成功(Fulfilled)失败(Rejected)等待(Pending)。
+- promise 不配合 async await 时，使用 .then() .catch() 处理成功和失败情况是目前的常规方案。
 - async 表示这是一个async函数，await只能用在这个函数里面。async 对象也是一个 promise 对象。
 - await 表示在这里等待 promise 返回结果了，再继续执行。
 - await 后面跟着的应该是一个 promise 对象（当然，其他返回值也没关系，不过那样就没有意义了…）
 - 很多库的接口返回 promise 对象，await 后赋值给一个变量后使用其 resolve 的值。[例如](http://mongoosejs.com/docs/api.html#query_Query-exec)
 - 注意三点，promise 对象的状态，promise 对象上的方法(then,catch),promise 对象返回的值。
+- promise 是当时为了解决回调地狱的解决方案，也是当前处理异步操作最流行和广泛使用的方案，async 和 await 最为当前的终极方案两只之间还有一些过渡方案。
 
 #### 举例：
 - 获取返回值
@@ -121,4 +124,5 @@ showArticle();
 ```
 [参考](http://es6.ruanyifeng.com/#docs/async)
 [参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+[参考](https://cnodejs.org/topic/560dbc826a1ed28204a1e7de)
 [参考](http://liubin.org/promises-book/#introduction)
