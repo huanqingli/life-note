@@ -81,43 +81,43 @@ let bar = await getBar();
 #### 最前面提到的场景：
 ```javascript
 var showArticle = async function () {
+    await new Promise(function (resolve, reject) {
+        PostModel.incPv(postId, function (result) {
+            resolve(result);
+        });
+    });// pv 加 1
+    var post = await new Promise(function (resolve, reject) {
+        PostModel.getPostById(postId, function (article) {
+            resolve(article);
+        });
+    });// 获取文章信息
+    await new Promise(function (resolve, reject) {
+        userModel.getUserById(post.author,function (author) {
+            post.author=author;
+            resolve();
+        })
+    });//获取文章作者
+    var comments = await new Promise(function (resolve, reject) {
+        CommentModel.getComments(post._id, function (comment) {
+            resolve(comment);
+        });
+    });// 获取该文章所有留言
+    for(var i=0;i<comments.length;i++){
         await new Promise(function (resolve, reject) {
-            PostModel.incPv(postId, function (result) {
-                resolve(result);
-            });
-        });// pv 加 1
-        var post = await new Promise(function (resolve, reject) {
-            PostModel.getPostById(postId, function (article) {
-                resolve(article);
-            });
-        });// 获取文章信息
-        await new Promise(function (resolve, reject) {
-            userModel.getUserById(post.author,function (author) {
-                post.author=author;
+            userModel.getUserById(comments[i].author,function (author) {
+                comments[i].author=author;
                 resolve();
             })
-        });//获取文章作者
-        var comments = await new Promise(function (resolve, reject) {
-            CommentModel.getComments(post._id, function (comment) {
-                resolve(comment);
-            });
-        });// 获取该文章所有留言
-        for(var i=0;i<comments.length;i++){
-            await new Promise(function (resolve, reject) {
-                userModel.getUserById(comments[i].author,function (author) {
-                    comments[i].author=author;
-                    resolve();
-                })
-            });//获取文章留言作者
-        }
-        if (!post) {
-            req.session.error = '该文章不存在';
-            return res.redirect('/post');
-        }
-        res.render('post',{post: post, comments: comments});
-    };
+        });//获取文章留言作者
+    }
+    if (!post) {
+        req.session.error = '该文章不存在';
+        return res.redirect('/post');
+    }
+    res.render('post',{post: post, comments: comments});
+};
 
-    showArticle();
+showArticle();
 ```
 [参考](http://es6.ruanyifeng.com/#docs/async)
 [参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
