@@ -121,3 +121,4 @@ var showArticle = async function () {
 ```
 [参考](http://es6.ruanyifeng.com/#docs/async)
 [参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+[参考](http://liubin.org/promises-book/#introduction)
