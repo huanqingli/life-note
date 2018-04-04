@@ -78,3 +78,13 @@
 
 ### 文本处理
 [链接](https://learnbyexample.gitbooks.io/command-line-text-processing)
+
+#### cat
+- 参数 `-n` 给输出内容标号
+- `cat > example.text` 之后开始写入文件，新一行 `ctrl + d` 退出保存
+- `tac` 按行倒叙输出，`rev` 行内倒叙输出。
+- `less` 查看大文件,是 `more` 的改进版本。
+- `tail -n<n> <file>` 输出文件最后的 n 行。`-n <+n>` 是从第 n 行开始到最后。  
+例如：`tail -n3 sample.txt` `tail -n +10 sample.txt`
+- `head` 从头开始输出，用法同 tail
+
