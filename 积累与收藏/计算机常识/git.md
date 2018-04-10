@@ -48,7 +48,8 @@
 `--cache`:已提交到暂存取的文件与版本库的文件们有何差异。  
 `HEAD`：工作区与版本库之间的差异。  
 `branchNameA`:与A分支比较（默认为当前分支）。  
-`branchNameA branchNameB`：比较A，B两个分支的差异。  
+`branchNameA branchNameB`：比较A，B两个分支的差异。
+`commitA commitB`: 比较两次提交间的差异。如果  
 - `git difftool`：用外部工具查看差异。
 - `git shortlog`: 查看每个人的提交情况，-s 只显示提交数，-n 按提交数排序。
 - `git reflog`: 查看**所有提交历史**，包括被覆盖的。
