@@ -10,3 +10,4 @@ yum update
 `export NVM_DIR="$HOME/.nvm"`  
 `[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`   
 到 ~/.zshrc  
+- node (nvm install 8)
