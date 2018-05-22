@@ -10,7 +10,7 @@
 - 获取镜像:  
 `docker pull [选项] [Docker Registry地址]<仓库名>:<标签>`  
 一般 `docker pull` 后面接镜像名即可从官方下载最新稳定版本该镜像。  
-如 `docker pull nginx `
+如 `docker pull nginx`
 `docker pull --help`查看选项  
 官方仓库查看镜像 [Docker Hub](https://hub.docker.com/explore/)  
 `docker search <镜像>` 命令来查找官方仓库中的镜像。  
