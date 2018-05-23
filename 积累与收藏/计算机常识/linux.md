@@ -42,26 +42,6 @@
 // -r 同时删除用户目录  
 - 给用户设置密码: `passwd <user name>`
 
-### yum
-- 更新软件包: `sudo yum update`  
-后面接包名更新特定包，不接更新全部包  
-- 管理储存库:
-    - 列出现有储存库及其当前状态:`yum repolist all`
-    - 添加储存库:`sudo yum-config-manager --add-repo <储存库 url >`
-    - 启用储存库:`sudo yum-config-manager --enable <储存库名称>`
-    - 禁用储存库: `sudo yum-config-manager --disable <储存库名称>`
-- 搜索软件包: `sudo yum search <要搜索的包>`
-- 产看已经安装的软件包: `yum list installed `
-- 查看 已安装/可安装 的软件包组: `yum grouplist`
-- 查看软件包组中的包: ` yum groupinfo <包组>`
-- 安装软件包: `sudo yum install <包名>`
-- 安装软件包组: `yum groupinstall <组名>`
-- 删除软件包: `yum remove &#124; erase <包名>`
-- 删除软件包组: `yum groupremove <组名>`
-- 查询包信息: `yum info`
-- [到配置文件里修改](http://blog.csdn.net/im5437/article/details/53445142)  
-安装某些 amzn 仓库没有的包到 /etc/yum.repos.d 目录下增加.repo文件
-
 ### FTP 服务
 - 启动服务: `sudo service vsftpd start`
 - 停止服务: `sudo service vsftpd stop`

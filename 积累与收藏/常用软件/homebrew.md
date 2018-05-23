@@ -1,4 +1,4 @@
-##Homebrew
+## Homebrew
 [地址](https://brew.sh/index_zh-cn.html)
 - 安装： `brew install < package >`
 - 卸载： `brew uninstall < package >`
