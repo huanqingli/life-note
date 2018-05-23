@@ -17,6 +17,7 @@
 - 查看历史操作：`yum history list [可加搜索条件]`
 - 撤销历史操作：`yum history undo <id>`  
 填写查到的id，可用于彻底删除某软件及其依赖，把安装的历史清除，相当于没装过
+- 删除软件及依赖：`yum autoremove` 据说这个也行,还是先不要用感觉很危险。
 - 删除软件包组: `yum groupremove <组名>`
 - 查询包信息: `yum info <包名>`
 - 清理缓存：`yum clean all`
