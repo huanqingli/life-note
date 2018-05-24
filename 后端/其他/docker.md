@@ -8,6 +8,7 @@
 
 #### 基本操作
 - 查看详细信息：`docker info`
+- docker hub 无法链接，看 [国内源](http://www.docker-cn.com/registry-mirror)
 #### 操作镜像
 - 获取镜像:  
 `docker pull [选项] [Docker Registry地址]<仓库名>:<标签>`  
@@ -44,7 +45,8 @@
 - 终止容器:  
 `docker stop` 来终止一个运行中的容器。接容器 id  
 终止状态的容器可以用 `docker ps -a` 命令看到。  
-`docker restart` 命令会将一个运行态的容器终止，然后再重新启动它。  
+`docker restart` 命令会将一个运行态的容器终止，然后再重新启动它。 
+- 查看启动容器：`docker container ls`  --all 查看全部容器
 - 删除容器:  
 `docker rm` 来删除一个处于终止状态的容器。  
 `docker rm $(docker ps -a -q)` 删除所有终止状态的容器。  
