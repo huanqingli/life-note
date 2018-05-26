@@ -38,16 +38,19 @@
 #### 操作容器
 - 启动容器:  
 所需要的命令主要为 `docker run`。  
-可以利用 `docker start` 命令，直接将一个已经终止的容器启动运行。  
+可以利用 `docker start` 命令，直接将一个已经终止的容器启动运行。
+后面接启动命令会覆盖 dockerfile 的 CMD  
 使用 `-d` 参数后台运行容器。  
 `-p 4000:80` 把本机的 4000 端口映射到容器的 80 端口  
 可以通过 `docker ps` 命令来查看容器信息。  
 可以通过 `docker logs` 命令获取容器的输出信息。  
+- 进入运行的容器：`docker exec -it <docker_name> /bin/bash`
 - 终止容器:  
 `docker stop` 来终止一个运行中的容器。接容器 id  
 终止状态的容器可以用 `docker ps -a` 命令看到。  
 `docker restart` 命令会将一个运行态的容器终止，然后再重新启动它。 
 - 查看启动容器：`docker container ls`  --all 查看全部容器 和 `docker ps` -a 一样
+- 查看容器信息：`docker inspect`
 - 删除容器:  
 `docker rm` 来删除一个处于终止状态的容器。同 `docker container rm`  
 `docker rm $(docker ps -a -q)` 删除所有终止状态的容器。  

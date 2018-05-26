@@ -18,5 +18,8 @@ yum update
 - node (nvm install 8)
 
 ### 用 docker 启动服务
-- mongo 数据卷 /data/db /data/configdb
+- mongo 数据卷 /data/db /data/configdb  
+docker run --name mongo-server -p 27017:27017 -v <本机目录>:/data/db -d mongo  
+权限系统搞好以后再启动一个  
+docker run --name mongo-server -p 27017:27017 -v /data/mongo:/data/db -d mongo mongod --auth
 - node
