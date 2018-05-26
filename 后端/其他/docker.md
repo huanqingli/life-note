@@ -7,6 +7,7 @@
 - 仓库: 存放镜像的仓库，官方的是 [Docker Hub](https://hub.docker.com/explore/)。
 
 #### 基本操作
+- 登录：`docker login`
 - 查看详细信息：`docker info`
 - docker hub 无法链接，看 [国内源](http://www.docker-cn.com/registry-mirror)
 #### 操作镜像
@@ -20,7 +21,7 @@
 - 列出镜像:  
 `docker images`
 - 删除镜像:  
-`docker rmi [选项] <镜像1> [<镜像2> ...]`  
+`docker rmi [选项] <镜像1> [<镜像2> ...]` 同 `docker image rm`  
 <镜像> 可以是 镜像短 ID、镜像长 ID、镜像名 或者 镜像摘要
 - 删除悬虚镜像:  
 `docker rmi $(docker images -q -f dangling=true)`  
@@ -46,15 +47,15 @@
 `docker stop` 来终止一个运行中的容器。接容器 id  
 终止状态的容器可以用 `docker ps -a` 命令看到。  
 `docker restart` 命令会将一个运行态的容器终止，然后再重新启动它。 
-- 查看启动容器：`docker container ls`  --all 查看全部容器
+- 查看启动容器：`docker container ls`  --all 查看全部容器 和 `docker ps` -a 一样
 - 删除容器:  
-`docker rm` 来删除一个处于终止状态的容器。  
+`docker rm` 来删除一个处于终止状态的容器。同 `docker container rm`  
 `docker rm $(docker ps -a -q)` 删除所有终止状态的容器。  
 
 #### 服务
 概念: 服务就是在生产环境下跑容器  
-一个服务对应一个镜像    
-使用 docker-compose.yml 定义在生产环境如何使用该镜像    
+一个服务对应多个镜像  
+使用 docker-compose.yml 定义在生产环境如何使用这些镜像    
 可以使用一个镜像跑多个容器。  
 docker-compose.yml示例:
 ```yaml
@@ -74,13 +75,14 @@ services:
     ports:
       - "80:80" # 主机端口 : Docker 端口
     networks:
-      - webnet
+      - webnet # 负载均衡，5个容器可以共享80端口
 networks:
   webnet:
 ```
 启动服务要在建立集群之后  
 每个节点可以部署多个服务  
 启动，停止，查看服务器状态的命令见[集群](#集群)
+- 查看service id：`docker service ls`
 
 #### 集群
 概念: 一组机器运行 Docker  
@@ -97,9 +99,9 @@ networks:
 - 拷贝 yml 文件到主节点根目录:  
 `docker-machine scp docker-compose.yml <节点名>:~`  
 - 在集群中部署:  
-`docker stack deploy -c docker-compose.yml <getstartedlab>`  
+`docker stack deploy -c docker-compose.yml <服务名>`  
 - 查看运行中的服务:  
-`docker stack ps <getstartedlab>`  
+`docker stack ps <服务名>`  
 - 停止集群:  
-`docker stack rm <getstartedlab>`  
+`docker stack rm <服务名>`  
 #### Dockerfile
