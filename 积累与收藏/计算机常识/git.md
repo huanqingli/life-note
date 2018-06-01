@@ -49,7 +49,7 @@
 `HEAD`：工作区与版本库之间的差异。  
 `branchNameA`:与A分支比较（默认为当前分支）。  
 `branchNameA branchNameB`：比较A，B两个分支的差异。
-`commitA commitB`: 比较两次提交间的差异。如果  
+`commitA commitB`: 比较两次提交间的差异。 
 - `git difftool`：用外部工具查看差异。
 - `git shortlog`: 查看每个人的提交情况，-s 只显示提交数，-n 按提交数排序。
 - `git reflog`: 查看**所有提交历史**，包括被覆盖的。
@@ -81,6 +81,7 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 使索引（暂存区）看起来像 HEAD （若未指定 --hard，则到此停止）  
 使工作目录看起来像索引  
 - `git checkout`：后面加文件名（带后缀），撤销工作区内对该文件的修改（工作区内删除的文件也可此命令恢复），暂存区有内容就回到暂存区的状态，否则就回到版本库内的状态。_不安全_
+- `git revert <commit-id>`: 回到某个 commit 的状态（会在当前提交新增一个提交）
 
 #### 删除/重命名文件
 - `git rm`：后面加文件名（带后缀），此命令将对该文件的删除操作添加到暂存区。之后commit操作和提交修改中的commit操作相同。此命令删除版本库文件还会删除工作区文件。（工作区直接删除文件，也要再移除监控）
@@ -161,4 +162,9 @@ git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git l
 ```shell
 git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | grep -v 'public' | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
 ```
+- 放弃本地修改，回到远程仓库状态：`git fetch --all && git reset --hard origin/master`
+- 删除合并到 master 的分支：`git branch --merged master | grep -v '^\*\|  master' | xargs -n 1 git branch -d`
+- 清除gitignore文件中记录的文件： `git clean -X -f`
+
+
 
