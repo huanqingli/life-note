@@ -130,6 +130,9 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 - `git pull origin`：从本地当前分支跟踪的 origin 仓库上的分支更新并合并到当前分支，只有一个远程仓库可省略。相当于 fetch 后 当前分支 merge 对应的远程分支，_不推荐_。指定分支拉取： `git pull <远程主机名> <远程分支名>:<本地分支名>`
 - `git push <远程主机名> <本地分支名>:<远程分支名>`：如果本地分支与远程分支同名，可只写一个，如果计划将当前所在本地分支**推送**到与其有追踪关系的远程仓库的分支，可省略分支名，如果只有一个主机有追踪关系，可省略主机名。远程无指定分支则**创建**(创建新远程分支时，主机名分支名不可省,且不会自动建立跟踪关系 加 **--set-upstream** 后会建立跟踪关系)。
 - `git push [remotename] --delete [branch]`：从 origin 仓库**删除** branch 分支，还会删除本地的远程分支。(`--force` 会不解决冲突，强制覆盖)
+- `git remote update origin`:在本地创建远程分支的追踪分支。
+- `git remote prune origin`：把已经无效的追踪分支删掉，加`--dry-run`先查看要删的分支先不删。
+
 
 #### 远程仓库
 - `git remote`: 列出远程仓库。
@@ -138,7 +141,7 @@ HEAD 指向某提交后，该提交之后的提交会消失。
 - `git remote add [shortname] [url]`: 添加远程仓库，并命名。
 - `git remote rename [nameA] [nameB]`: 把远程仓库A命名为B。
 - `git remote rm`: 后接远程仓库名，仅断开连接。
-- `git remote show`: 后接远程仓库名，查看详情。
+- `git remote show`: 后接远程仓库名，查看详情(分支及本地追踪状态等)。
 - `git remote set-url origin [url]`: 切换远程仓库地址。可用于 https 改 ssh 或相反。
 
 #### 查找BUG
