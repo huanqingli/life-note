@@ -80,6 +80,8 @@
 - 查看用户登陆历史: `last`
 - 重启: `sudo reboot`
 - 查看端口情况: `netstat -tpln`
+- 查看占用某端口的应用: `lsof -i :<端口号>`
+- 杀掉某PID的进程：`kill -9 <PID>`
 - 查看某应用进程: `ps -ef |grep <应用名>`
 - 退出 shell: `exit`
 - 查看系统版本: `cat /etc/issue`
