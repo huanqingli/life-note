@@ -25,6 +25,7 @@
 - mysql: 关系型数据库(brew install mysql)
 - sequel-pro: mysql 图形工具(brew cask install sequel-pro)
 - sqlitebrowser: sqlite 图形工具
+- mongodb: 非关系型数据库(brew install mongodb)
 - MongoDB Compass: mongodb 图形工具
 - postman: http请求工具(brew cask install postman)
 - SwitchHosts: host管理工具(brew cask install switchhosts)

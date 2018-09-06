@@ -11,6 +11,10 @@ requests = "*"
 selenium = "*"
 aiohttp = "*"
 lxml = "*"
+"beautifulsoup4" = "*"
+pyquery = "*"
+tesserocr = "*"
+pillow = "*"
 
 
 [dev-packages]
