@@ -27,6 +27,8 @@
 - sqlitebrowser: sqlite 图形工具
 - mongodb: 非关系型数据库(brew install mongodb)
 - MongoDB Compass: mongodb 图形工具
+- redis: 内存中的数据库(brew install redis)
+- RedisDesktopManager: redis客户端
 - postman: http请求工具(brew cask install postman)
 - SwitchHosts: host管理工具(brew cask install switchhosts)
 
