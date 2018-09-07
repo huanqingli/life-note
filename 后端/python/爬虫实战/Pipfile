@@ -15,6 +15,12 @@ lxml = "*"
 pyquery = "*"
 tesserocr = "*"
 pillow = "*"
+pymysql = "*"
+pymongo = "*"
+redis = "*"
+flask = "*"
+tornado = "*"
+pyspider = "*"
 
 
 [dev-packages]
