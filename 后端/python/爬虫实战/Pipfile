@@ -21,6 +21,8 @@ redis = "*"
 flask = "*"
 tornado = "*"
 pyspider = "*"
+scrapy = "*"
+pycurl = "*"
 
 
 [dev-packages]
