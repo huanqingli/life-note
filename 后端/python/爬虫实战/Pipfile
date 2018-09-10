@@ -26,6 +26,10 @@ pycurl = "*"
 scrapy-splash = "*"
 scrapy-redis = "*"
 scrapyd = "*"
+scrapyd-client = "*"
+python-scrapyd-api = "*"
+scrapyrt = "*"
+gerapy = "*"
 
 
 [dev-packages]

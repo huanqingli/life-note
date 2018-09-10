@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "95d3611cd80012ba40844c605272ef7931a2bbf73828ecf83372f6870c7aaf1e"
+            "sha256": "7be179d6fffb28de932d7481b39a6b0e3f1ee90d6c1f7b4eed2e44287e47daab"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -193,6 +193,32 @@
             ],
             "version": "==0.5.0"
         },
+        "demjson": {
+            "hashes": [
+                "sha256:31de2038a0fdd9c4c11f8bf3b13fe77bc2a128307f965c8d5fb4dc6d6f6beb79"
+            ],
+            "version": "==2.2.4"
+        },
+        "django": {
+            "hashes": [
+                "sha256:04f2e423f2e60943c02bd2959174b844f7d1bcd19eabb7f8e4282999958021fd",
+                "sha256:e1cc1cd6b658aa4e052f5f2b148bfda08091d7c3558529708342e37e4e33f72c"
+            ],
+            "version": "==2.1.1"
+        },
+        "django-cors-headers": {
+            "hashes": [
+                "sha256:5545009c9b233ea7e70da7dbab7cb1c12afa01279895086f98ec243d7eab46fa",
+                "sha256:c4c2ee97139d18541a1be7d96fe337d1694623816d83f53cb7c00da9b94acae1"
+            ],
+            "version": "==2.4.0"
+        },
+        "docopt": {
+            "hashes": [
+                "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
+            ],
+            "version": "==0.6.2"
+        },
         "flask": {
             "hashes": [
                 "sha256:a080b744b7e345ccfcbc77954861cb05b3c63786e93f2b3875e0913d44b43f05",
@@ -205,6 +231,13 @@
                 "sha256:c815c1ac7b3e35e2081685e389a665f2c74d7e077cb93cecabaea352da4752ec"
             ],
             "version": "==0.4.1"
+        },
+        "gerapy": {
+            "hashes": [
+                "sha256:667e9a9ff445c2dbe565514a37f4374ccb11cdaa9a2b903fe5fb4e0bc8ec8607",
+                "sha256:a723f581cc52ce02428c2a2c5b658e2bbfabd5f8235a33291d5d00646ff1a521"
+            ],
+            "version": "==0.8.5"
         },
         "hyperlink": {
             "hashes": [
@@ -546,6 +579,20 @@
             ],
             "version": "==0.3.10"
         },
+        "python-scrapyd-api": {
+            "hashes": [
+                "sha256:ab92d3461a81f46aaa6d82cc3de610642892c5454ddebb74d2b81fbc55e9c807",
+                "sha256:e64f7caab23e541967fdf78926af5e6be6a863227f78d16b7ebb3a35acfc2099"
+            ],
+            "version": "==2.1.2"
+        },
+        "pytz": {
+            "hashes": [
+                "sha256:a061aa0a9e06881eb8b3b2b43f05b9439d6583c206d0a6c340ff72a7b6669053",
+                "sha256:ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"
+            ],
+            "version": "==2018.5"
+        },
         "pyyaml": {
             "hashes": [
                 "sha256:d5eef459e30b09f5a098b9cea68bebfeb268697f78d647bd255a085371ac7f3f",
@@ -610,6 +657,19 @@
                 "sha256:c7189100759e60ee5ae7fec1f040a6be88e20fbbd353ac07db6a78d729bada7f"
             ],
             "version": "==1.2.0"
+        },
+        "scrapyd-client": {
+            "hashes": [
+                "sha256:caa0f5369c2e1efa7b79c309afb9819b2518870c5f4f2caf84d3e474cd6a9890",
+                "sha256:e547475c5c8dbd811e2cc4141a0e7b4ba47600e9980c59df4f831bb60b94e4cb"
+            ],
+            "version": "==1.1.0"
+        },
+        "scrapyrt": {
+            "hashes": [
+                "sha256:2b439cba2d96cce88a1d47a0b3a8cf8bdbe8312e0b1bc97c8e64e20cea840d40"
+            ],
+            "version": "==0.10"
         },
         "selenium": {
             "hashes": [
