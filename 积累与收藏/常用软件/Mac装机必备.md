@@ -31,6 +31,7 @@
 - RedisDesktopManager: redis客户端
 - postman: http请求工具(brew cask install postman)
 - SwitchHosts: host管理工具(brew cask install switchhosts)
+- docker: 容器(brew cask install docker)
 
 ### 生活常用
 - appcleaner：删应用

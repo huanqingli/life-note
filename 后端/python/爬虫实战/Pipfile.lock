@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cebd53fe6b5eee28c313d48f9d7ec64e1382feaf0d9cf2829acb11ece2810152"
+            "sha256": "95d3611cd80012ba40844c605272ef7931a2bbf73828ecf83372f6870c7aaf1e"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -589,6 +589,27 @@
                 "sha256:5a398bf6818f87dcc817c919408a195f19ba46414ae12f259119336cfa862bb6"
             ],
             "version": "==1.5.1"
+        },
+        "scrapy-redis": {
+            "hashes": [
+                "sha256:1508dfb29141a7eb562e303a12d2733fd490dee866f7fabe3bee3e5c5bef6df8",
+                "sha256:b6991f2c0b2a72cd211296756acd03b9a7695fc437f5adbc3770d2e035979707"
+            ],
+            "version": "==0.6.8"
+        },
+        "scrapy-splash": {
+            "hashes": [
+                "sha256:71ac958370f8732fec746a25a8235b03a4d3c4c93a59be51aa8e910a08cfe511",
+                "sha256:089188b11202813b14b88d3be008641a2b3d36e82fadd4a6c61f0af59b66e7b5"
+            ],
+            "version": "==0.7.2"
+        },
+        "scrapyd": {
+            "hashes": [
+                "sha256:4983898bd6b6c53735cfa9e92e166c1d89d5c108a36ae2959c5cae914dc61887",
+                "sha256:c7189100759e60ee5ae7fec1f040a6be88e20fbbd353ac07db6a78d729bada7f"
+            ],
+            "version": "==1.2.0"
         },
         "selenium": {
             "hashes": [

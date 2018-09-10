@@ -23,6 +23,9 @@ tornado = "*"
 pyspider = "*"
 scrapy = "*"
 pycurl = "*"
+scrapy-splash = "*"
+scrapy-redis = "*"
+scrapyd = "*"
 
 
 [dev-packages]
