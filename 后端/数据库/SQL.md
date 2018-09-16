@@ -41,8 +41,9 @@
     ```  
     查找列名为prod_name和列名为prod_price的两列，检索其中prod_price = 3.49; 的所有行。  
     = 可以替换为其它操作符，如下表
+
     | 操作符 | 描述 |
-    | ---- | --- |
+    | --- | --- |
     | = | 等于 |
     | <> | 不等于 |
     | > | 大于 |
@@ -51,6 +52,7 @@
     | <= | 小于等于 |
     | BETWEEN | 在某个范围内 |
     | LIKE | 搜索某种模式 |
+    
 - 组合WHERE子句：
     ```sql
     SELECT prod_id, prod_price, prod_name
