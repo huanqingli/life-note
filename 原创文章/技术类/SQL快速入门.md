@@ -52,7 +52,7 @@
     | <= | 小于等于 |
     | BETWEEN | 在某个范围内 |
     | LIKE | 搜索某种模式 |
-    
+
 - 组合WHERE子句：
     ```sql
     SELECT prod_id, prod_price, prod_name
@@ -274,7 +274,7 @@ ORDER BY 命令放在查询、分组等语句的最后。
     在UPDATE或DELETE语句使用WHERE子句前，应该先用SELECT进行测试，保证它过滤的是正确的记录，以防编写的WHERE子句不正确。如果不写WHERE会更新或删除所有行内容。
 
 #### 子查询-迭代查询
-- 一种形式：
+- 一种形式：作为筛选条件出现
     ```sql
     SELECT cust_name, cust_contact
     FROM Customers
@@ -286,7 +286,7 @@ ORDER BY 命令放在查询、分组等语句的最后。
     ```
     先从第二个括号选择符合条件的order_num，成为第二个括号内容，再向上找到第一个括号，查到符合条件的cust_id返回给第一个括号，最后根据第一个括号内容执行主查询语句。性能问题不要嵌套太多层。  
     也就是对Customers表的查询要用到Orders表查询后返回的内容，对Orders表的查询要用到OrderItems表查询后返回的内容。
-- 另一种形式：
+- 另一种形式：作为一列出现
     ```sql
     SELECT cust_name,
         cust_state,
@@ -296,7 +296,7 @@ ORDER BY 命令放在查询、分组等语句的最后。
     FROM Customers
     ```
     根据Customers 表中的cust_id，去Orders表中取得计算后的数据。  
-- 同一个表迭代查询：
+- 同一个表迭代查询：(就是第一种形式)
     ```sql
     SELECT cust_id, cust_name, cust_contact
     FROM Customers
