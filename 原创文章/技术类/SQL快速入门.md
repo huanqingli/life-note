@@ -313,7 +313,7 @@ ORDER BY 命令放在查询、分组等语句的最后。
         FROM Vendors, Products
         WHERE Vendors.vend_id = Products.vend_id;
         ```
-        根据两个表共同的列vend_id把Vendors, Products关联起来。
+        根据两个表共同的列vend_id把Vendors, Products关联起来。只显示两个表能连接的记录。
         与
         ```sql
         SELECT vend_name, prod_name, prod_price
