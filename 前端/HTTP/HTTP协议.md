@@ -6,7 +6,10 @@ HTTP协议永远都是客户端发起请求，服务器回送响应。
 3. HTTP默认的端口号为80，HTTPS的端口号为443。
 4. HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。Accept 是接受返回数据的类型。
 5. 请求过程：建立连接，客户机发送请求，服务机接受请求给予响应，客户机接受信息后断开连接。
-6. HTTP 0.9和1.0使用非持续连接：限制每次连接只处理一个请求，服务器处理完客户的请求，并收到客户的应答后，即断开连接（连接不可复用）。采用这种方式可以节省传输时间。HTTP 1.1使用持续连接：不必为每个web对象创建一个新的连接，一个连接可以传送多个对象（连接可复用）。
+6. HTTP 0.9和1.0使用非持续连接：限制每次TCP连接只处理一个请求，服务器处理完客户的请求，并收到客户的应答后，即断开连接（连接不可复用）。      
+HTTP 1.1开始，一次 tcp 连接可以发送多次(但是是串行的) http 请求(提高了效率，tcp三次握手也挺费事的)。  
+HTTP 2.0开始，一次 tcp 连接可以并行发送 http 请求，又一次提高了效率。  
+chrome 同时可建立 6 个 TCP 连接。
 7. 报文：启始行，首部，主体  
 	- 请求报文启始行 = 方法 [空格] 请求URI [空格] 版本号 [回车换行] 如：  
 POST http://192.168.2.217:8080/index.jsp   HTTP/1.1  
@@ -55,7 +58,9 @@ query(查询)
 可选，用于给动态网页传递参数。  
 fragment（信息片断）  
 字符串，用于指定网络资源中的片断。  
+10. 所谓跨域是浏览器自身的限制，请求会正常发送也会正常返回，只不过浏览器发现没有允许该域名的header，就会隐藏返回值并报错。
 #### 注意
-跨域 POST 请求时:  
+跨域 POST 请求时(还有PUT，DELETE等非简单请求):  
 如果不是 application/x-www-form-urlencoded, multipart/form-data, ortext/plain 这三种形式的请求，会先发送一个 OPTION 请求确认服务器是否授权，得不到回应会终止该 POST 请求。  
 It uses methods other than GET, HEAD or POST.  Also, if POST is used to send request data with a Content-Type other than application/x-www-form-urlencoded, multipart/form-data, ortext/plain, e.g. if the POST request sends an XML payload to the server using application/xmlor text/xml, then the request is preflighted.It sets custom headers in the request (e.g. the request uses a header such as X-PINGOTHER)  
+CSP 内容安全策略，为了安全性限制各种客户端请求，google － mdn csp 查看详情，有很多设置，还可以设置违规操作后 report 给服务器。
