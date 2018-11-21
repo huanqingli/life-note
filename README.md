@@ -64,7 +64,7 @@
 	- 数组
 	- 函数
 	- 对象
-	- [对象](原创文章/技术类/js对象详解.md)
+	- [对象](原创文章/技术类/javascript/js对象详解.md)
 	- 闭包
 	- this相关
 	- 时间日期相关
@@ -140,14 +140,16 @@
 
 ### 原创文章
 - #### 技术类
-	- [React-热替换](原创文章/技术类/react-热替换.md)
-	- [webpack-科学分离第三方库](原创文章/技术类/webpack-科学分离第三方库.md)
-	- [async/await与promise(js异步操作).md](原创文章/技术类/async\await与promise(js异步操作).md)
-	- [完美结合redux与react-router](原创文章/技术类/完美结合redux与react-router.md)
-	- [js对象详解](原创文章/技术类/js对象详解.md)
+	- [React-热替换](原创文章/技术类/javascript/react-热替换.md)
+	- [async/await与promise(js异步操作).md](原创文章/技术类/javascript/async\await与promise(js异步操作).md)
+	- [完美结合redux与react-router](原创文章/技术类/javascript/完美结合redux与react-router.md)
+	- [js对象详解](原创文章/技术类/javascript/js对象详解.md)
+	- [前端测试框架对比(js单元测试框架对比)](原创文章/技术类/javascript/前端测试框架对比(js单元测试框架对比).md)
 	- [我两年的web开发生涯](原创文章/技术类/我两年的web开发生涯.md)
+	- [webpack-科学分离第三方库](原创文章/技术类/webpack-科学分离第三方库.md)
 	- [WebSocket详解](原创文章/技术类/WebSocket详解.md)
 	- [权限认证(cookie-vs-token)](原创文章/技术类/权限认证(cookie-vs-token).md)
+	- [SQL快速入门](原创文章/技术类/SQL快速入门.md)
 - #### 生活类
 	- [你是自由的么](原创文章/生活类/你是自由的么.md)
 - #### 读书笔记
