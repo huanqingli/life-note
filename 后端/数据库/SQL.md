@@ -111,8 +111,9 @@
         SELECT COUNT(＊) AS num_cust  
         FROM Customers;  
         求表Customers有几行。返回给num_cust。  
-        ＊可以换成指定列如：cust_email。计算所得行数不包括该列值为null的行。  
-        DISTINCT 列名，求不重复的列。
+        ＊可以换成指定列如：  
+        cust_email。计算所得行数不包括该列值为null的行。  
+        DISTINCT 列名，求不重复的列。(其他内置方法里也可以用 DISTINCT)
 - 组合：  
     ```sql
     SELECT COUNT(＊) AS num_items,
@@ -132,7 +133,8 @@
     根据 vend_id列中内容对 vend_id分组，  
     第一行换成 `SELECT vend_id, COUNT(＊) AS num_prods` 即对每一个组计算行数。  
     注意：多行NULL会分为一组，GROUP BY子句必须出现在WHERE子句之后，ORDER BY子句之前。  
-    可以对一个以上的列进行 GROUP BY
+    可以对一个以上的列进行 GROUP BY  
+    使用 GROUP BY 后 SELELCT 后面只能包涵 GRUOP BY 的列和其它列的统计(如 COUNT(*), AVE(prod_price)等)
 - 过滤分组：
     HAVING：类似于WHERE。唯一的差别是，WHERE过滤行，而HAVING过滤分组。  
     ```sql
@@ -152,7 +154,13 @@ ORDER BY Company DESC, OrderNumber ASC
 ```
 可以 ORDER BY 列名1,列名2; 先按列名1内容排序，排序结果相同的按列名2内容排序。  
 列名后接 DESC 按该列内容倒序排列，ASC 正序(默认)。  
-ORDER BY 命令放在查询、分组等语句的最后。  
+ORDER BY 命令放在查询、分组等语句的最后。   
+书写顺序:  
+SELECT 子句 → FROM 子句 → WHERE 子句 → GROUP BY 子句 → HAVING 子句 → ORDER BY 子句  
+执行顺序:
+FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY   
+所以 GROPUP BY 里面不能用别名， ORDER BY 里可以用别名，和 SELECT 执行时的顺序有关  
+ORDER BY 里可以使用统计函数(COUNT(*),AVE(prod_price)等)
 
 #### 表操作
 - 创建表:
@@ -253,7 +261,7 @@ ORDER BY 命令放在查询、分组等语句的最后。
             cust_country
     FROM CustNew;
     ```
-    把从CustNew表中查到的内容插入 Customers表中。一次插入多行的方式。
+    把从CustNew表中查到的内容插入 Customers表中。一次插入多行的方式。通过查询时分组，聚合等方式可以生成统计表。  
 
 #### 更新和删除数据:
 - 更新数据：
