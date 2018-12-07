@@ -148,8 +148,10 @@ Sub.prototype = new Super();    // 核心
 过程是这样的，在简单的原型链继承的基础上， Sub 的构造函数里运行 Super ，从而给 Sub 的每一个实例对象一份单独的属性，解决了上面两个问题，可以给 Super 传参数了，而且因为是独立的属性，不会因为误操作引用类型值而影响其他实例了。不过还有个小缺点: Sub 中调用的 Super 给每个 Sub 的实例对象一套新的属性，覆盖了继承的 Super 实例对象的属性，那被覆盖的的那套属性不就浪费了？岂不是白继承了？最严重的问题是 Super 被执行了两次，这不能忍(其实也没多大问题)。下面进行一下优化，把上面例子最后一行替换为:  
 ```js
 Sub.prototype = Object.create(Super.prototype);
+
 // Object.create() 给原型链上添加一环，否则 Sub 和 Super 的原型就重叠了。
 Sub.prototype.constructor = Sub;
+// 不加这句 Sub.constructor 就等于 Super 了
 ```
 到此为止，继承非常完美。  
 其他还有各路继承方式无非是在 简单原型链继承 --> 优化的组合继承 路程之间的一些思路或者封装。  
