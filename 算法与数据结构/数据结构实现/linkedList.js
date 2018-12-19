@@ -8,13 +8,14 @@ class LinkNode{
   }
 }
 
+// index 从零开始
 class LinkedList{
   constructor(){
     this.head = null
     this.tail = null
     this.size = 0
   }
-  //
+
   prepend(value){
     this.head = new LinkNode(value, this.head)
     if(!this.tail){
@@ -26,6 +27,8 @@ class LinkedList{
 
   append(value){
     let newNode = new LinkNode(value)
+    this.size++
+
     if(this.size === 0){
       this.head = newNode
       this.tail = newNode
@@ -40,7 +43,7 @@ class LinkedList{
     return this
   }
 
-  find(value){
+  findValue(value){
     if(this.size === 0){
       return null
     }
@@ -54,6 +57,19 @@ class LinkedList{
     }
 
     return null
+  }
+
+  find(index){
+    if(this.size === 0){
+      return null
+    }
+
+    let currentNode = this.head
+    for(let i=0;i<index;i++){
+      currentNode = currentNode.next
+    }
+
+    return currentNode
   }
 
   fromArray(arr){
@@ -82,5 +98,6 @@ class LinkedList{
 let b = new LinkedList()
 b.prepend(2)
 b.prepend(1)
-b.append(3)
+b.append(4)
 console.log(b.toString())
+console.log(b.find(1))
