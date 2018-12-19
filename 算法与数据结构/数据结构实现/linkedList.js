@@ -16,28 +16,51 @@ class LinkedList{
     this.size = 0
   }
 
-  prepend(value){
-    this.head = new LinkNode(value, this.head)
-    if(!this.tail){
-      this.tail = this.head
+  insert(value, index){
+    if(index > this.size || index < 0){
+      return false
     }
+
+    if(this.size === 0 || this.size === index || index === undefined){
+      return this.append(value)
+    }
+
+    if(index === 0){
+      this.head = new LinkNode(value, this.head)
+      this.size++
+      return this
+    }
+
+    let currentNode = this.head
+    
+    for(let i=1;i<index;i++){
+      currentNode = currentNode.next
+    }
+
+    currentNode.next = new LinkNode(value, currentNode.next)
     this.size++
+
     return this
+  }
+
+  prepend(value){
+    return this.insert(value, 0)
   }
 
   append(value){
     let newNode = new LinkNode(value)
-    this.size++
 
     if(this.size === 0){
       this.head = newNode
       this.tail = newNode
+      this.size++
 
       return this
     }
 
     this.tail.next = newNode
     this.tail = newNode
+    this.size++
     
 
     return this
@@ -72,6 +95,43 @@ class LinkedList{
     return currentNode
   }
 
+  delete(index){
+    if(index >= this.size || index < 0 || index === undefined){
+      return false
+    }
+
+    if(index === 0){
+      this.head = this.head.next
+      this.size--
+      return this
+    }
+    let preDeleteNode = this.head
+
+    for(let i=1;i<index;i++){
+      preDeleteNode = preDeleteNode.next
+    }
+
+    let deleteNode = preDeleteNode.next
+
+    preDeleteNode.next = deleteNode.next
+
+    if(!deleteNode.next){
+      this.tail = preDeleteNode
+    }
+    deleteNode.next = null
+    this.size--
+
+    return deleteNode
+  }
+
+  deletehead(){
+    this.delete(0)
+  }
+
+  deleteTail(){
+    this.delete(this.size-1)
+  }
+
   fromArray(arr){
     arr.forEach(ele => {
       this.append(ele)
@@ -95,9 +155,39 @@ class LinkedList{
   }
 }
 
+
+// 测试用例
 let b = new LinkedList()
 b.prepend(2)
 b.prepend(1)
 b.append(4)
+b.insert(3, 2)
+b.insert(5)
 console.log(b.toString())
 console.log(b.find(1))
+console.log(b.findValue(3))
+console.log(b.find(3))
+b.delete(2)
+console.log(b.toString())
+b.delete(0)
+console.log(b.toString())
+b.deleteTail()
+console.log(b.toString())
+console.log(b.head)
+console.log(b.tail)
+
+/* 理想输出
+size:5 head (1=>,2=>,3=>,4=>,5=>) tail
+LinkNode {
+  value: 2,
+  next: LinkNode { value: 3, next: LinkNode { value: 4, next: [Object] } } }
+LinkNode {
+  value: 3,
+  next: LinkNode { value: 4, next: LinkNode { value: 5, next: null } } }
+LinkNode { value: 4, next: LinkNode { value: 5, next: null } }
+size:4 head (1=>,2=>,4=>,5=>) tail
+size:3 head (2=>,4=>,5=>) tail
+size:2 head (2=>,4=>) tail
+LinkNode { value: 2, next: LinkNode { value: 4, next: null } }
+LinkNode { value: 4, next: null }
+*/
