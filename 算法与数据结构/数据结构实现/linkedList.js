@@ -102,6 +102,9 @@ class LinkedList{
 
     if(index === 0){
       this.head = this.head.next
+      if(!this.head){
+        this.tail = null
+      }
       this.size--
       return this
     }
