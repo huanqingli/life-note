@@ -6,8 +6,8 @@
 - 终端使用 shadowsocks 代理 [链接](../计算机常识/mac.md)
 - chrome：浏览器(https://www.google.com/chrome/)
 - vscode: 优质编辑器
-- iTerm2：终端
 - Homebrew: 包管理器(要使用 shadowsocks 代理)
+- iTerm2：终端(brew cask install iterm2)
 - oh-my-zsh：让终端变强 查看[这里](./oh-my-zsh.md)安装各路插件
 - zsh-syntax-highlighting: 终端命令高亮(作为oh-my-zsh插件)
 - thefuck：自动纠错(brew install thefuck)(fuck 显示正确指令)
