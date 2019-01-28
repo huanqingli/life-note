@@ -42,6 +42,7 @@
 - keeweb: 密码管理  
 - buku: 命令行书签管理(建立软连接)(brew install buku)
 - oneNote：笔记
+- SwitchHosts: host指向修改
 - 有道笔记
 - 有道词典
 - 百度网盘
