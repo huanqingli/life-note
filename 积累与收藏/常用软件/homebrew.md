@@ -16,6 +16,7 @@
 
 - 进入 homebrew 仓库：`cd "$(brew --repo)"`
 - 替换 homebrew 的源：`git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git`(为了 update 快)
+完整的修改镜像服务参考: [brew 切换源](https://blog.csdn.net/lwplwf/article/details/79097565)
 
 - 启动服务：`brew services start <服务名>`（通过brew安装的 mysql mongodb redis）
 - 停止服务：`brew services stop <服务名>`
