@@ -168,6 +168,6 @@ git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git l
 - 放弃本地修改，回到远程仓库状态：`git fetch --all && git reset --hard origin/master`
 - 删除合并到 master 的分支：`git branch --merged master | grep -v '^\*\|  master' | xargs -n 1 git branch -d`
 - 清除gitignore文件中记录的文件： `git clean -X -f`
-
+- git 无法保留硬链接，链接在一起的文件将被视为独立文件
 
 
