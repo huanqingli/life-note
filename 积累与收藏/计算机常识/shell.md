@@ -60,6 +60,7 @@
 中间的 `+` 代表 添加，`-` 代表 取消 , `=` 代表重设  
 最后 `r` 代表 可读，`w` 代表 可写， `x` 代表可执行 
 - `su <user>`:切换用户
+- `sudo -u root <命令>`: 以管理员身份执行命令
 
 #### 其他命令
 - 输出：`echo` 输出变量 `echo $变量名`
@@ -85,7 +86,9 @@
 - 查看某应用进程: `ps -ef |grep <应用名>`
 - 退出 shell: `exit`
 - 查看系统版本: `cat /etc/issue`
+- 查看系统可用shell目录：`cat /etc/shells`
 - 查看内核版本: `uname -a`或`cat /proc/version`
+- 不知道是什么host不让你clone: `ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts`
  
 
 #### xargs
