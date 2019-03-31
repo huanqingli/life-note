@@ -30,7 +30,9 @@
 - zsh-syntax-highlighting： 命令高亮，提示错误，合法路径等
 安装：` git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 在 plugins 里添加到最后一个
-
+- zsh-autosuggestions: 自动补全提示
+安装：`git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+在 plugins 里添加
 
 插件使用：
 ##### wd
