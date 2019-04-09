@@ -18,9 +18,12 @@
 4. 预加载。google 会为用户预加载搜索到的第一个结果。link 标签的 rel 属性有五种预加载方式。
 5. 减少http请求个数。
 6. 减少 cookie 的大小，使用无 cookie 的域。
+7. 服务分散在不同主机上，因为客户端和同一个主机同时建立TCP链接数量有上限。多主机还带来多cookie的优点。
 #### 图片
 1. 压缩方式和图片类型。
+2. spriting，优点减少http请求，缺点如果只用其中少量内容，还是要请求完整的一大张图，而且清除缓存时会全部清除。
 
 [参考](https://3perf.com/talks/web-perf-101/)
+[参考](https://ye11ow.gitbooks.io/http2-explained/content/part3.html)
 
 
