@@ -38,6 +38,7 @@
 - clearnMyMac：磁盘清理
 - omniDiskSweeper：磁盘清理
 - iina：视频播放器(brew cask install iina)
+- Lepton：github gist(代码片段) 管理客户端(brew cask install lepton)
 - cakebrew:homebrew 图形管理工具(brew cask install cakebrew)
 - keeweb: 密码管理  
 - buku: 命令行书签管理(建立软连接)(brew install buku)
