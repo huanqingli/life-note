@@ -12,3 +12,4 @@
 [react实例](https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e)
 [实现上](https://medium.com/@deathmood/how-to-write-your-own-virtual-dom-ee74acc13060)
 [实现下](https://medium.com/@deathmood/write-your-virtual-dom-2-props-events-a957608f5c76)
+[算法实现](https://github.com/livoras/blog/issues/13)

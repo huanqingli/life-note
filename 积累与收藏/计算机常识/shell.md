@@ -88,7 +88,7 @@
 - 查看系统版本: `cat /etc/issue`
 - 查看系统可用shell目录：`cat /etc/shells`
 - 查看内核版本: `uname -a`或`cat /proc/version`
-- 不知道是什么host不让你clone: `ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts`
+- 不知道是什么host不让你clone: `ssh-keyscan -t rsa github.com >> ~/.ssh/known_hostsmvmv`
  
 
 #### xargs
