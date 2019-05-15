@@ -171,7 +171,7 @@ function clone(obj){
     return obj
   } else {
     for(var i in obj){
-      newobj[i] = typeof obj[i] === 'object' ? cloneObj(obj[i]) : obj[i]; 
+      newobj[i] = typeof obj[i] === 'object' ? clone(obj[i]) : obj[i]; 
       // 只考虑 对象和数组， 函数虽然也是引用类型，但直接赋值并不会产生什么副作用，所以函数类型无需深度克隆。
     }
   }
