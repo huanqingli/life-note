@@ -44,6 +44,7 @@
 - buku: 命令行书签管理(建立软连接)(brew install buku)
 - oneNote：笔记
 - SwitchHosts: host指向修改
+- motrix: 下载工具，可下百度网盘资源等(brew cask install motrix)
 - 有道笔记
 - 有道词典
 - 百度网盘
