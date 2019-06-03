@@ -2,6 +2,7 @@
 ### 命令
 - 启动 nginx 服务: `sudo service nginx start`
 - 不中断服务的重启(可用作重载配置): `kill -HUP <pid>` 或 `sudo nginx -s reload`
+- 查看当前配置和存放位置：`sudo nginx -t`
 - 查看 nginx 服务器运行状态 `service nginx status`
 - 加入开机自启动列表: `sudo chkconfig --add /etc/init.d/nginx`
 ### 配置
@@ -11,11 +12,11 @@ user root;
 写配置千万别忘结尾了 ; 这个符号  
 - 重定向:
 ```shell
-// 把 dabao.love 重定向到 www.dabao.love
+// 把 dabao.love 重定向到 www.dabao.love 反之同理
 server {
     listen       80;
     server_name  dabao.love;
-    return       301 http://www.dabao.love$request_uri;
+    return       301 $scheme://www.dabao.love$request_uri;
 }
 ```
 – 路径匹配:
@@ -38,9 +39,18 @@ location ~* .(gif|jpg|jpeg)$ {
   # 但是所有 /images/ 目录的请求将由 [Configuration C]处理.   
   [ configuration D ]
 }
-// 与 react 配合返回固定 html 文件
+# 与 react 配合返回固定 html 文件
 location / {
   try_files $uri /index.html;
+}
+# 重定向某个页面
+location = /oldpage.html {
+  return 301 http://example.org/newpage.html;
+}
+# 只允许来自 local 的访问
+location /local {
+    allow 127.0.0.1;
+    deny all;
 }
 ```
 - 解决不显示图片的问题
@@ -66,4 +76,11 @@ gzip_types text/plain application/javascript application/x-javascript text/css a
 gzip_vary on;
 # 禁用IE 6 gzip
 gzip_disable "MSIE [1-6]\.";
+```
+- 文件缓存
+```conf
+open_file_cache max=1000 inactive=20s;
+open_file_cache_valid 30s;
+open_file_cache_min_uses 2;
+open_file_cache_errors on;
 ```
