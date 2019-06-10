@@ -18,8 +18,7 @@
     直接  throw'名字请限制在1-10个字符' ; 抛错 err 即为'名字请限制在1-10个字符' 
 
 - 执行顺序：  
-  执行完同步任务后， setTimeout 是比 promise.then 先执行的。 
+  执行完同步任务后， setTimeout 是比 promise.then 先执行的。  
 
 - 获取从哪个页面跳转过来的：
 	`document.referrer`
-	  
