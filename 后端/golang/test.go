@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-// import "time"
+import "time"
 // import "reflect"
 // import "runtime"
 
@@ -105,13 +105,14 @@ import "fmt"
 // }
 
 
-func f1(out chan int) {
-	fmt.Println(<-out)
-}
+// func f1(out chan int) {
+// 	fmt.Println(<-out)
+// }
 
-func main() {
-	out := make(chan int)
-	fmt.Println(<-out)
-	out <- 2
-	// go f1(out)
-}
+// func main() {
+// 	out := make(chan int)
+// 	fmt.Println(<-out)
+// 	out <- 2
+// 	// go f1(out)
+// }
+
