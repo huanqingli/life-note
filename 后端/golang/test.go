@@ -94,25 +94,25 @@ import "time"
 // 	print(5)
 // }
 
-// func getData(ch chan string) {
-// 	var input string
-// 	// time.Sleep(2e8)
-// 	for {
-// 		input = <-ch
-// 		time.Sleep(2e8)
-// 		fmt.Printf("%s ", input)
-// 	}
-// }
+func getData(ch chan string) {
+	var input string
+	// time.Sleep(2e8)
+	for {
+		input = <-ch
+		time.Sleep(2e8)
+		fmt.Printf("%s ", input)
+	}
+}
 
 
-// func f1(out chan int) {
-// 	fmt.Println(<-out)
-// }
+func f1(out chan int) {
+	fmt.Println(<-out)
+}
 
-// func main() {
-// 	out := make(chan int)
-// 	fmt.Println(<-out)
-// 	out <- 2
-// 	// go f1(out)
-// }
+func main() {
+	out := make(chan int)
+	fmt.Println(<-out)
+	out <- 2
+	// go f1(out)
+}
 
