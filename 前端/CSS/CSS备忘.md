@@ -25,3 +25,5 @@
 * 单词间距: `word-spacing`
 * 阻止换行: `white-space:nowrap;`
 * 让标签里的空格生效: `white-space:pre;`
+### 其他
+* 居中：[参考](https://juejin.im/post/5b9a4477f265da0ad82bf921)
