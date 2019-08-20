@@ -27,3 +27,7 @@
 * 让标签里的空格生效: `white-space:pre;`
 ### 其他
 * 居中：[参考](https://juejin.im/post/5b9a4477f265da0ad82bf921)
+### 属性
+* 动画: `animation`
+* 过渡: `transition` 时间、过渡效果等
+* 形状变换: `transform`
