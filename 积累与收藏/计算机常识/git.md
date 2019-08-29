@@ -173,4 +173,6 @@ git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git l
 - 清除gitignore文件中记录的文件： `git clean -X -f`
 - git 无法保留硬链接，链接在一起的文件将被视为独立文件
 
+- https形式的clone转换成ssh的`git config --global --add url."git@code.byted.org:".insteadOf "https://code.byted.org/"`
+
 
