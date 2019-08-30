@@ -175,4 +175,6 @@ git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git l
 
 - https形式的clone转换成ssh的`git config --global --add url."git@code.byted.org:".insteadOf "https://code.byted.org/"`
 
+- [疑难杂症](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
+
 
