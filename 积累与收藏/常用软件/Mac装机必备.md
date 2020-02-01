@@ -8,8 +8,10 @@
 - vscode: 优质编辑器
 - Homebrew: 包管理器(要使用 shadowsocks 代理)
 - iTerm2：终端(brew cask install iterm2)
-- oh-my-zsh：让终端变强 查看[这里](./oh-my-zsh.md)安装各路插件
+- oh-my-zsh：让终端变强 查看[这里](./oh-my-zsh.md)安装各路插件 z
+- zsh-autosuggestions: 自动补全(作为oh-my-zsh插件)
 - zsh-syntax-highlighting: 终端命令高亮(作为oh-my-zsh插件)
+- powerline: 终端字体(https://github.com/powerline/fonts)
 - thefuck：自动纠错(brew install thefuck)(fuck 显示正确指令)
 - ripgrep: 搜索文件内部内容(brew install ripgrep)(rg 搜索内容)
 - fd: 按名称搜索文件(brew install fd)
