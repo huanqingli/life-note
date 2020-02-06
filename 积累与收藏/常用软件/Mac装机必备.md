@@ -12,6 +12,7 @@
 - zsh-autosuggestions: 自动补全(作为oh-my-zsh插件)
 - zsh-syntax-highlighting: 终端命令高亮(作为oh-my-zsh插件)
 - powerline: 终端字体(https://github.com/powerline/fonts)
+- spaceship: zsh 主题(https://github.com/denysdovhan/spaceship-prompt/)
 - thefuck：自动纠错(brew install thefuck)(fuck 显示正确指令)
 - ripgrep: 搜索文件内部内容(brew install ripgrep)(rg 搜索内容)
 - fd: 按名称搜索文件(brew install fd)
