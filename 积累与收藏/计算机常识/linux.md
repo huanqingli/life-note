@@ -5,6 +5,8 @@
 - 挂载：具体的目录连接到 /dev 下面的具体的硬盘
 - 环境变量 $PATH ：系统搜索命令的路径。命令都是可执行文件，会自动去环境变量下的路径查找。  
 环境变量有好多，命令会从左到右依次查找，执行先找到的。
+- 前台与后台任务 [参考](http://www.ruanyifeng.com/blog/2016/02/linux-daemon.html)
+- systomd：系统程序控制 [参考](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
 #### 各目录的基本约定
 - 系统命令: bin sbin usr/bin usr/sbin 四个目录 sbin 下是超级用户才可以执行的
 - 启动目录: boot
