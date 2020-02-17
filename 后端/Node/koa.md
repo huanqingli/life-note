@@ -5,6 +5,8 @@
 - koa-helmet： 安全
 - koa-router
 - kcors：跨域
+- koa-proxies: 代理
+- koa-ip: ip黑白名单
 - koa-send：发送文件
 - koa-static：静态文件服务
 - koa-favicon 
