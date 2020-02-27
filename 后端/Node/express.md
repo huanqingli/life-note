@@ -197,3 +197,26 @@ res.redirect('../login');
 #### Router
 router 在处理请求时如同 app  
 拥有和 app 相同的 use all get post 等方法
+
+#### 最佳实践
+[参考](https://github.com/goldbergyoni/nodebestpractices/blob/master/README.chinese.md)
+##### 项目结构
+1. 单独模块，比如 product，不要分model，controller，test等，都放在一个文件里，按功能设计文件结构。
+2. 保持express在特定区域，即保持express在路由里，不要把express的内容渗入到数据模块等。
+3. 公共模块封装包。
+4. API与网络配置分离，网络相关放在./bin/www
+5. 分层配置
+##### 错误处理
+1. 使用Promise
+2. 使用内建错误类型(throw new Error('bulabula'))
+3. 区分操作形错误(例如网络连接失败)与程序错误(bug)
+4. 集中处理错误但不是在中间件
+5. API调用可能产生的错误Swagger文档化
+6. 出现未知错误让应用崩溃
+7. 使用成熟的日志工具
+8. 单元测试
+9. 使用APM产品发现错误[例如](https://uptimerobot.com/)
+10. 捕获Promise里的错误
+11. 专门的库验证API传参[joi](https://github.com/hapijs/joi#readme)
+[参考](https://cnodejs.org/topic/55714dfac4e7fbea6e9a2e5d)
+
