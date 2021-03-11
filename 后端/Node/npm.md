@@ -8,3 +8,7 @@
 4. 配置: 查看配置：`npm config ls -l` 修改配置：`npm config set <key> <value>`
 [参考](https://juejin.im/post/5ab3f77df265da2392364341)
 [循环依赖](https://juejin.im/post/5a6008c2f265da3e5033cd93)
+
+
+发布npm包
+使用es6模块，webpack设置 `output{ libraryTarget: 'commonjs2' }`

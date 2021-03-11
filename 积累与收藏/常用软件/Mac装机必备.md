@@ -46,8 +46,7 @@
 - keeweb: 密码管理  
 - buku: 命令行书签管理(建立软连接)(brew install buku)
 - oneNote：笔记
-- SwitchHosts: host指向修改
-- whistle: 更 6 的host修改，配合 switchyomega 就是 66666
+- whistle: 更 6 的host修改，配合 switchyomega 就是 66666（https://wproxy.org/whistle/）
 - motrix: 下载工具，可下百度网盘资源等(brew cask install motrix)
 - 有道笔记
 - 有道词典
