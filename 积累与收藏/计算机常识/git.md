@@ -159,6 +159,7 @@
 - `git remote rename [nameA] [nameB]`: 把远程仓库 A 命名为 B。
 - `git remote rm`: 后接远程仓库名，仅断开连接。
 - `git remote show`: 后接远程仓库名，查看详情(分支及本地追踪状态等)。
+- `git remote prune origin` : 清理远程已经被删掉，本地还有记录的分支
 - `git remote set-url origin [url]`: 切换远程仓库地址。可用于 https 改 ssh 或相反。
 
 #### 查找 BUG
